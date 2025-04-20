@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FuturaDB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+189668dc7db84a140c5a621af1e6a87e7dde1149")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d96cec8e105bc1b19a96238a18216d1e5a403cd")]
 [assembly: System.Reflection.AssemblyProductAttribute("FuturaDB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FuturaDB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
