@@ -62,7 +62,7 @@ namespace AtelierPro
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            ReportsProducts êeportsForm = new ReportsProducts(con);
+            ReportsMaterial êeportsForm = new ReportsMaterial(con);
             êeportsForm.ShowDialog();
         }
     }

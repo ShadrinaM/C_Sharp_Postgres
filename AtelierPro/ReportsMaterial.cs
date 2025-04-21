@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using System.Data;
+using System.Windows.Forms;
 
 namespace AtelierPro
 {
@@ -15,9 +16,9 @@ namespace AtelierPro
 
         private void Reports_Load(object sender, EventArgs e)
         {
-            //чё-то до загрузки сделать
+            checkedListBox1.CheckOnClick = true; // Убедитесь, что это свойство установлено
+            LoadMaterials();
         }
-
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -32,6 +33,33 @@ namespace AtelierPro
         private void btnExportExel_Click(object sender, EventArgs e)
         {
             //экспортировать в эксель
+        }
+
+        private void LoadMaterials()
+        {
+            try
+            {
+                string query = "SELECT material_name FROM Material ORDER BY material_name";
+                using (var cmd = new NpgsqlCommand(query, connection))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    checkedListBox1.Items.Clear(); // Очищаем список перед заполнением
+
+                    while (reader.Read())
+                    {
+                        checkedListBox1.Items.Add(reader["material_name"].ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при загрузке материалов: {ex.Message}");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                    connection.Close();
+            }
         }
     }
 }
