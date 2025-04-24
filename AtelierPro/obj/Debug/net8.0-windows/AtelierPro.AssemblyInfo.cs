@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AtelierPro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+556dddddc6206d663ba4aa4e4ef39b8ea5f3799c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd3ddac3521726f52c2fcae84baaa3d12118a44f")]
 [assembly: System.Reflection.AssemblyProductAttribute("AtelierPro")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AtelierPro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

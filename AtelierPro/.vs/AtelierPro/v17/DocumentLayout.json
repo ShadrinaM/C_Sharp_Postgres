@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\atelierpro\\reportsmaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:reportsmaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\atelierpro\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\atelierpro\\reportsproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\atelierpro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\reportsproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:reportsproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\atelierpro\\datatables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,12 +27,12 @@
       "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:reportsmaterial.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\atelierpro\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\atelierpro\\reportsmaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:reportsmaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\atelierpro\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\atelierpro\\reportsproducts.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,33 +54,56 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAwBcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T11:54:39.565Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "app.manifest",
+              "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\app.manifest",
+              "RelativeDocumentMoniker": "app.manifest",
+              "ToolTip": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\app.manifest",
+              "RelativeToolTip": "app.manifest",
+              "ViewState": "AgIAACEAAAAAAAAAAADgvywAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
+              "WhenOpened": "2025-04-24T11:45:17.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DataTables.cs",
               "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\DataTables.cs",
               "RelativeDocumentMoniker": "DataTables.cs",
               "ToolTip": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\DataTables.cs",
               "RelativeToolTip": "DataTables.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA1wCIAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwCIAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T10:53:50.147Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T10:53:50.147Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "ReportsMaterial.cs",
               "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\ReportsMaterial.cs",
               "RelativeDocumentMoniker": "ReportsMaterial.cs",
               "ToolTip": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\ReportsMaterial.cs",
               "RelativeToolTip": "ReportsMaterial.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwBIAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwDgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T19:32:14.232Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T19:32:14.232Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "ReportsMaterial.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\ReportsMaterial.Designer.cs",
               "RelativeDocumentMoniker": "ReportsMaterial.Designer.cs",
@@ -80,36 +111,33 @@
               "RelativeToolTip": "ReportsMaterial.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T19:32:23.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T19:32:23.919Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Menu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\Menu.cs",
               "RelativeDocumentMoniker": "Menu.cs",
               "ToolTip": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\Menu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "RelativeToolTip": "Menu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T18:57:00.075Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+              "WhenOpened": "2025-04-20T18:57:00.075Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ReportsProducts.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\ReportsProducts.cs",
               "RelativeDocumentMoniker": "ReportsProducts.cs",
               "ToolTip": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\ReportsProducts.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "RelativeToolTip": "ReportsProducts.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T18:53:24.958Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+              "WhenOpened": "2025-04-20T18:53:24.958Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "ReportsProducts.cs",
               "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\ReportsProducts.cs",
               "RelativeDocumentMoniker": "ReportsProducts.cs",
@@ -121,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Menu.cs",
               "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\Menu.cs",
               "RelativeDocumentMoniker": "Menu.cs",
@@ -129,12 +157,11 @@
               "RelativeToolTip": "Menu.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAADwvz8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T18:56:52.313Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T18:56:52.313Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "ReportsProducts.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\ReportsProducts.Designer.cs",
               "RelativeDocumentMoniker": "ReportsProducts.Designer.cs",
@@ -142,8 +169,7 @@
               "RelativeToolTip": "ReportsProducts.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T18:53:23.48Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T18:53:23.48Z"
             }
           ]
         }

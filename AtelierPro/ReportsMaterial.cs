@@ -55,11 +55,6 @@ namespace AtelierPro
             {
                 MessageBox.Show($"Ошибка при загрузке материалов: {ex.Message}");
             }
-            finally
-            {
-                if (connection.State == ConnectionState.Open)
-                    connection.Close();
-            }
         }
     }
 }
