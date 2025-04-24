@@ -47,10 +47,10 @@
             btnData.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             btnData.ForeColor = Color.White;
             btnData.ImageAlign = ContentAlignment.MiddleLeft;
-            btnData.Location = new Point(250, 150);
+            btnData.Location = new Point(207, 221);
             btnData.Name = "btnData";
             btnData.Padding = new Padding(10, 0, 0, 0);
-            btnData.Size = new Size(300, 60);
+            btnData.Size = new Size(489, 60);
             btnData.TabIndex = 0;
             btnData.Text = "Данные";
             btnData.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -65,10 +65,10 @@
             btnInvoices.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             btnInvoices.ForeColor = Color.White;
             btnInvoices.ImageAlign = ContentAlignment.MiddleLeft;
-            btnInvoices.Location = new Point(250, 230);
+            btnInvoices.Location = new Point(207, 301);
             btnInvoices.Name = "btnInvoices";
             btnInvoices.Padding = new Padding(10, 0, 0, 0);
-            btnInvoices.Size = new Size(300, 60);
+            btnInvoices.Size = new Size(489, 60);
             btnInvoices.TabIndex = 1;
             btnInvoices.Text = "Накладные";
             btnInvoices.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -83,10 +83,10 @@
             btnReports.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             btnReports.ForeColor = Color.White;
             btnReports.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReports.Location = new Point(250, 310);
+            btnReports.Location = new Point(207, 381);
             btnReports.Name = "btnReports";
             btnReports.Padding = new Padding(10, 0, 0, 0);
-            btnReports.Size = new Size(300, 60);
+            btnReports.Size = new Size(489, 60);
             btnReports.TabIndex = 2;
             btnReports.Text = "Отчёты";
             btnReports.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -101,7 +101,7 @@
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(800, 100);
+            panelHeader.Size = new Size(900, 100);
             panelHeader.TabIndex = 3;
             // 
             // lblTitle
@@ -130,7 +130,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(900, 600);
             Controls.Add(panelHeader);
             Controls.Add(btnReports);
             Controls.Add(btnInvoices);

@@ -37,9 +37,9 @@
             btnBack = new Button();
             DataStart = new Label();
             DataEnd = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            checkedListBox1 = new CheckedListBox();
+            dateTimePickerStart = new DateTimePicker();
+            dateTimePickerEnd = new DateTimePicker();
+            checkedListBox = new CheckedListBox();
             selectedProducts = new Label();
             btnExportExel = new Button();
             btnGenerateReport = new Button();
@@ -56,9 +56,8 @@
             panelHeader.Controls.Add(picLogo);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
-            panelHeader.Margin = new Padding(3, 4, 3, 4);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1029, 133);
+            panelHeader.Size = new Size(900, 100);
             panelHeader.TabIndex = 0;
             // 
             // TitleReport
@@ -66,9 +65,9 @@
             TitleReport.AutoSize = true;
             TitleReport.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             TitleReport.ForeColor = Color.White;
-            TitleReport.Location = new Point(14, 71);
+            TitleReport.Location = new Point(12, 53);
             TitleReport.Name = "TitleReport";
-            TitleReport.Size = new Size(554, 41);
+            TitleReport.Size = new Size(447, 32);
             TitleReport.TabIndex = 2;
             TitleReport.Text = "Отчёт по изделиям (их материалам)";
             // 
@@ -77,19 +76,18 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 30F, FontStyle.Bold);
             lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(663, 45);
+            lblTitle.Location = new Point(580, 34);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(266, 67);
+            lblTitle.Size = new Size(213, 54);
             lblTitle.TabIndex = 1;
             lblTitle.Text = "AtelierPro";
             // 
             // picLogo
             // 
             picLogo.Image = (Image)resources.GetObject("picLogo.Image");
-            picLogo.Location = new Point(935, 20);
-            picLogo.Margin = new Padding(3, 4, 3, 4);
+            picLogo.Location = new Point(818, 15);
             picLogo.Name = "picLogo";
-            picLogo.Size = new Size(80, 93);
+            picLogo.Size = new Size(70, 70);
             picLogo.SizeMode = PictureBoxSizeMode.Zoom;
             picLogo.TabIndex = 0;
             picLogo.TabStop = false;
@@ -103,12 +101,11 @@
             dataGridView.BorderStyle = BorderStyle.None;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.GridColor = SystemColors.Control;
-            dataGridView.Location = new Point(14, 384);
-            dataGridView.Margin = new Padding(3, 4, 3, 4);
+            dataGridView.Location = new Point(12, 288);
             dataGridView.Name = "dataGridView";
             dataGridView.ReadOnly = true;
             dataGridView.RowHeadersWidth = 51;
-            dataGridView.Size = new Size(1001, 400);
+            dataGridView.Size = new Size(876, 300);
             dataGridView.TabIndex = 2;
             // 
             // btnBack
@@ -118,10 +115,9 @@
             btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(901, 141);
-            btnBack.Margin = new Padding(3, 4, 3, 4);
+            btnBack.Location = new Point(788, 106);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(114, 44);
+            btnBack.Size = new Size(100, 33);
             btnBack.TabIndex = 3;
             btnBack.Text = "Выход";
             btnBack.UseVisualStyleBackColor = false;
@@ -131,9 +127,9 @@
             // 
             DataStart.AutoSize = true;
             DataStart.Font = new Font("Microsoft Sans Serif", 14.25F);
-            DataStart.Location = new Point(15, 137);
+            DataStart.Location = new Point(13, 103);
             DataStart.Name = "DataStart";
-            DataStart.Size = new Size(156, 29);
+            DataStart.Size = new Size(120, 24);
             DataStart.TabIndex = 5;
             DataStart.Text = "Дата начала";
             // 
@@ -141,44 +137,41 @@
             // 
             DataEnd.AutoSize = true;
             DataEnd.Font = new Font("Microsoft Sans Serif", 14.25F);
-            DataEnd.Location = new Point(15, 184);
+            DataEnd.Location = new Point(13, 138);
             DataEnd.Name = "DataEnd";
-            DataEnd.Size = new Size(142, 29);
+            DataEnd.Size = new Size(111, 24);
             DataEnd.TabIndex = 6;
             DataEnd.Text = "Дата конца";
             // 
-            // dateTimePicker1
+            // dateTimePickerStart
             // 
-            dateTimePicker1.Location = new Point(159, 141);
-            dateTimePicker1.Margin = new Padding(3, 4, 3, 4);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(228, 27);
-            dateTimePicker1.TabIndex = 7;
+            dateTimePickerStart.Location = new Point(139, 106);
+            dateTimePickerStart.Name = "dateTimePickerStart";
+            dateTimePickerStart.Size = new Size(200, 23);
+            dateTimePickerStart.TabIndex = 7;
             // 
-            // dateTimePicker2
+            // dateTimePickerEnd
             // 
-            dateTimePicker2.Location = new Point(159, 185);
-            dateTimePicker2.Margin = new Padding(3, 4, 3, 4);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(228, 27);
-            dateTimePicker2.TabIndex = 8;
+            dateTimePickerEnd.Location = new Point(139, 139);
+            dateTimePickerEnd.Name = "dateTimePickerEnd";
+            dateTimePickerEnd.Size = new Size(200, 23);
+            dateTimePickerEnd.TabIndex = 8;
             // 
-            // checkedListBox1
+            // checkedListBox
             // 
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Location = new Point(159, 231);
-            checkedListBox1.Margin = new Padding(3, 4, 3, 4);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(362, 114);
-            checkedListBox1.TabIndex = 9;
+            checkedListBox.FormattingEnabled = true;
+            checkedListBox.Location = new Point(139, 173);
+            checkedListBox.Name = "checkedListBox";
+            checkedListBox.Size = new Size(317, 76);
+            checkedListBox.TabIndex = 9;
             // 
             // selectedProducts
             // 
             selectedProducts.AutoSize = true;
             selectedProducts.Font = new Font("Microsoft Sans Serif", 14.25F);
-            selectedProducts.Location = new Point(15, 231);
+            selectedProducts.Location = new Point(13, 173);
             selectedProducts.Name = "selectedProducts";
-            selectedProducts.Size = new Size(116, 29);
+            selectedProducts.Size = new Size(87, 24);
             selectedProducts.TabIndex = 10;
             selectedProducts.Text = "Изделия";
             // 
@@ -189,10 +182,9 @@
             btnExportExel.FlatStyle = FlatStyle.Flat;
             btnExportExel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnExportExel.ForeColor = Color.White;
-            btnExportExel.Location = new Point(773, 312);
-            btnExportExel.Margin = new Padding(3, 4, 3, 4);
+            btnExportExel.Location = new Point(676, 234);
             btnExportExel.Name = "btnExportExel";
-            btnExportExel.Size = new Size(242, 44);
+            btnExportExel.Size = new Size(212, 33);
             btnExportExel.TabIndex = 11;
             btnExportExel.Text = "Экспортировать Excel";
             btnExportExel.UseVisualStyleBackColor = false;
@@ -205,10 +197,9 @@
             btnGenerateReport.FlatStyle = FlatStyle.Flat;
             btnGenerateReport.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnGenerateReport.ForeColor = Color.White;
-            btnGenerateReport.Location = new Point(773, 260);
-            btnGenerateReport.Margin = new Padding(3, 4, 3, 4);
+            btnGenerateReport.Location = new Point(676, 195);
             btnGenerateReport.Name = "btnGenerateReport";
-            btnGenerateReport.Size = new Size(242, 44);
+            btnGenerateReport.Size = new Size(212, 33);
             btnGenerateReport.TabIndex = 12;
             btnGenerateReport.Text = "Сформировать отчёт";
             btnGenerateReport.UseVisualStyleBackColor = false;
@@ -216,23 +207,22 @@
             // 
             // ReportsProducts
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1029, 800);
+            ClientSize = new Size(900, 600);
             Controls.Add(btnGenerateReport);
             Controls.Add(btnExportExel);
             Controls.Add(selectedProducts);
-            Controls.Add(checkedListBox1);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(checkedListBox);
+            Controls.Add(dateTimePickerEnd);
+            Controls.Add(dateTimePickerStart);
             Controls.Add(DataEnd);
             Controls.Add(DataStart);
             Controls.Add(btnBack);
             Controls.Add(dataGridView);
             Controls.Add(panelHeader);
-            Margin = new Padding(3, 4, 3, 4);
-            MinimumSize = new Size(1044, 836);
+            MinimumSize = new Size(916, 637);
             Name = "ReportsProducts";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Составление отчёта";
@@ -254,9 +244,9 @@
         private Button btnBack;
         private Label DataStart;
         private Label DataEnd;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
-        private CheckedListBox checkedListBox1;
+        private DateTimePicker dateTimePickerStart;
+        private DateTimePicker dateTimePickerEnd;
+        private CheckedListBox checkedListBox;
         private Label selectedProducts;
         private Button btnExportExel;
         private Button btnGenerateReport;

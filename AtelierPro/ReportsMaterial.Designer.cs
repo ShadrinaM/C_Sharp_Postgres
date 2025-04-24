@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportsMaterial));
             panelHeader = new Panel();
+            comboBox = new ComboBox();
             TitleReport = new Label();
             lblTitle = new Label();
             picLogo = new PictureBox();
@@ -37,11 +38,12 @@
             btnBack = new Button();
             DataStart = new Label();
             DataEnd = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            checkedListBox1 = new CheckedListBox();
+            dateTimePickerStart = new DateTimePicker();
+            dateTimePickerEnd = new DateTimePicker();
+            checkedListBox = new CheckedListBox();
             selectedMaterial = new Label();
             btnGenerateReport = new Button();
+            btnExportExcel = new Button();
             panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -50,6 +52,7 @@
             // panelHeader
             // 
             panelHeader.BackColor = SystemColors.ActiveCaptionText;
+            panelHeader.Controls.Add(comboBox);
             panelHeader.Controls.Add(TitleReport);
             panelHeader.Controls.Add(lblTitle);
             panelHeader.Controls.Add(picLogo);
@@ -59,16 +62,26 @@
             panelHeader.Size = new Size(900, 100);
             panelHeader.TabIndex = 0;
             // 
+            // comboBox
+            // 
+            comboBox.Font = new Font("Segoe UI", 18F);
+            comboBox.FormattingEnabled = true;
+            comboBox.Location = new Point(13, 45);
+            comboBox.Name = "comboBox";
+            comboBox.Size = new Size(443, 40);
+            comboBox.TabIndex = 13;
+            comboBox.SelectedIndexChanged += comboBox_SelectedIndexChanged;
+            // 
             // TitleReport
             // 
             TitleReport.AutoSize = true;
-            TitleReport.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            TitleReport.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             TitleReport.ForeColor = Color.White;
-            TitleReport.Location = new Point(12, 53);
+            TitleReport.Location = new Point(13, 5);
             TitleReport.Name = "TitleReport";
-            TitleReport.Size = new Size(492, 32);
+            TitleReport.Size = new Size(166, 37);
             TitleReport.TabIndex = 2;
-            TitleReport.Text = "Отчёт по материалам (их поставщикам)";
+            TitleReport.Text = "Тип отчёта:";
             // 
             // lblTitle
             // 
@@ -141,27 +154,27 @@
             DataEnd.TabIndex = 6;
             DataEnd.Text = "Дата конца";
             // 
-            // dateTimePicker1
+            // dateTimePickerStart
             // 
-            dateTimePicker1.Location = new Point(139, 106);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 7;
+            dateTimePickerStart.Location = new Point(139, 106);
+            dateTimePickerStart.Name = "dateTimePickerStart";
+            dateTimePickerStart.Size = new Size(317, 23);
+            dateTimePickerStart.TabIndex = 7;
             // 
-            // dateTimePicker2
+            // dateTimePickerEnd
             // 
-            dateTimePicker2.Location = new Point(139, 139);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 23);
-            dateTimePicker2.TabIndex = 8;
+            dateTimePickerEnd.Location = new Point(139, 139);
+            dateTimePickerEnd.Name = "dateTimePickerEnd";
+            dateTimePickerEnd.Size = new Size(317, 23);
+            dateTimePickerEnd.TabIndex = 8;
             // 
-            // checkedListBox1
+            // checkedListBox
             // 
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Location = new Point(139, 173);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(317, 94);
-            checkedListBox1.TabIndex = 9;
+            checkedListBox.FormattingEnabled = true;
+            checkedListBox.Location = new Point(139, 173);
+            checkedListBox.Name = "checkedListBox";
+            checkedListBox.Size = new Size(317, 94);
+            checkedListBox.TabIndex = 9;
             // 
             // selectedMaterial
             // 
@@ -188,17 +201,34 @@
             btnGenerateReport.UseVisualStyleBackColor = false;
             btnGenerateReport.Click += btnGenerateReport_Click;
             // 
+            // btnExportExcel
+            // 
+            btnExportExcel.BackColor = SystemColors.ActiveCaptionText;
+            btnExportExcel.FlatAppearance.BorderSize = 0;
+            btnExportExcel.FlatStyle = FlatStyle.Flat;
+            btnExportExcel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnExportExcel.ForeColor = Color.White;
+            btnExportExcel.Location = new Point(676, 195);
+            btnExportExcel.Name = "btnExportExcel";
+            btnExportExcel.Size = new Size(212, 33);
+            btnExportExcel.TabIndex = 13;
+            btnExportExcel.Text = "Экспортировать Excel";
+            btnExportExcel.UseVisualStyleBackColor = false;
+            btnExportExcel.Visible = false;
+            btnExportExcel.Click += btnExportExel_Click;
+            // 
             // ReportsMaterial
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(900, 600);
+            Controls.Add(btnExportExcel);
             Controls.Add(btnGenerateReport);
             Controls.Add(selectedMaterial);
-            Controls.Add(checkedListBox1);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(checkedListBox);
+            Controls.Add(dateTimePickerEnd);
+            Controls.Add(dateTimePickerStart);
             Controls.Add(DataEnd);
             Controls.Add(DataStart);
             Controls.Add(btnBack);
@@ -226,11 +256,13 @@
         private Button btnBack;
         private Label DataStart;
         private Label DataEnd;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
-        private CheckedListBox checkedListBox1;
+        private DateTimePicker dateTimePickerStart;
+        private DateTimePicker dateTimePickerEnd;
+        private CheckedListBox checkedListBox;
         private Label selectedMaterial;
         private Button btnGenerateReport;
         private Label TitleReport;
+        private ComboBox comboBox;
+        private Button btnExportExcel;
     }
 }

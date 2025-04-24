@@ -10,6 +10,7 @@ namespace AtelierPro
         public Menu()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         // Обработчик события Load
@@ -36,7 +37,9 @@ namespace AtelierPro
             //}
         }
 
-        //Закрыть соединение при закрытии формы
+        /// <summary>
+        /// Закрыть соединение при закрытии формы
+        /// </summary>
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -62,8 +65,9 @@ namespace AtelierPro
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            ReportsMaterial кeportsForm = new ReportsMaterial(con);
-            кeportsForm.ShowDialog();
+            ReportsMaterial кeportsForm = new ReportsMaterial(con, this);
+            кeportsForm.Show();
+            this.Hide();
         }
     }
 }
