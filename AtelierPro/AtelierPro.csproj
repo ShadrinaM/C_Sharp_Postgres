@@ -26,10 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="ReportsMaterial.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="ReportsProducts.cs">
+    <Compile Update="Reports.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Invoices.cs">

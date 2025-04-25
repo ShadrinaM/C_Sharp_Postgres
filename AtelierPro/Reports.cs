@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace AtelierPro
 {
-    public partial class ReportsMaterial : Form
+    public partial class Reports : Form
     {
         private NpgsqlConnection connection;
         private Menu mainForm;
 
-        public ReportsMaterial(NpgsqlConnection conn, Menu menushka)
+        public Reports(NpgsqlConnection conn, Menu menushka)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -17,7 +17,6 @@ namespace AtelierPro
             connection = conn;
             this.FormClosed += WinForm_FormClosed;
         }
-
 
         /// <summary>
         /// Закрытие окна по крестику
@@ -52,7 +51,7 @@ namespace AtelierPro
             // Заполнение ComboBox вариантами отчетов
             comboBox.Items.AddRange(new string[]
             {
-                "Отчёт по поставщикам (материалам)",
+                "Отчёт по материалам (поставщикам)",
                 "Отчёт по изделиям (материалам)"
             });
 
@@ -85,11 +84,13 @@ namespace AtelierPro
             {
                 LoadMaterials();
                 btnExportExcel.Visible = false;
+                selectedMaterial.Text = "Материалы:";
             }
             else
             {
                 LoadProducts();
                 btnExportExcel.Visible = true;
+                selectedMaterial.Text = "Изделия:";
             }
         }
 

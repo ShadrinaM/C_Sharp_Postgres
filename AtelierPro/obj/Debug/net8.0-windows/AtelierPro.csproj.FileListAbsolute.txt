@@ -41,8 +41,7 @@ M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Form1.res
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Invoices.resources
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Menu.resources
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Properties.Resources.resources
-M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.ReportsMaterial.resources
-M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.ReportsProducts.resources
+M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Reports.resources
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.csproj.GenerateResource.cache
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.GeneratedMSBuildEditorConfig.editorconfig
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AssemblyInfoInputs.cache
@@ -55,3 +54,4 @@ M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\refint\AtelierPro.dl
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.pdb
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.genruntimeconfig.cache
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\ref\AtelierPro.dll
+M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddInvoiceItemForm.resources

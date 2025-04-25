@@ -3,6 +3,10 @@ using System.Windows.Forms;
 
 namespace AtelierPro
 {
+    // Свернуть всё(все регионы, методы, классы в файле):
+    // Ctrl + M, Ctrl + O
+    // Развернуть всё:
+    // Ctrl + M, Ctrl + L
     public partial class Menu : Form
     {
         public NpgsqlConnection con;
@@ -13,7 +17,9 @@ namespace AtelierPro
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        // Обработчик события Load
+        /// <summary>
+        /// Обработчик события Load
+        /// </summary>
         private void Menu_Load(object sender, System.EventArgs e)
         {
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -53,20 +59,22 @@ namespace AtelierPro
 
         private void btnData_Click(object sender, EventArgs e)
         {
-            DataTables dataTablesForm = new DataTables(con);
-            dataTablesForm.ShowDialog();
+            DataTables dataTablesForm = new DataTables(con, this);
+            dataTablesForm.Show();
+            this.Hide();
         }
 
         private void btnInvoices_Click(object sender, EventArgs e)
         {
-            Invoices invoicesForm = new Invoices(con);
-            invoicesForm.ShowDialog();
+            Invoices invoicesForm = new Invoices(con, this);
+            invoicesForm.Show();
+            this.Hide();
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            ReportsMaterial кeportsForm = new ReportsMaterial(con, this);
-            кeportsForm.Show();
+            Reports ReportsForm = new Reports(con, this);
+            ReportsForm.Show();
             this.Hide();
         }
     }

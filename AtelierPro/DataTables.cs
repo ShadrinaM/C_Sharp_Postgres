@@ -6,12 +6,27 @@ namespace AtelierPro
     public partial class DataTables : Form
     {
         private NpgsqlConnection connection;
+        private Menu mainForm;
 
-        public DataTables(NpgsqlConnection conn)
+        public DataTables(NpgsqlConnection conn, Menu menushka)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.mainForm = menushka;
             connection = conn;
+            this.FormClosed += WinForm_FormClosed;
+            this.mainForm = mainForm;
         }
+
+        /// <summary>
+        /// Закрытие окна по крестику
+        /// </summary>
+        private void WinForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Показываем главное окно при закрытии текущего
+            mainForm.Show();
+        }
+
 
         private void DataTables_Load(object sender, EventArgs e)
         {
