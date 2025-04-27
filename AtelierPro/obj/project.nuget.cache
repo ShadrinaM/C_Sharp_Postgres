@@ -1,19 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "heZbR4vjkWQ=",
+  "dgSpecHash": "MrDTnzCM3jM=",
   "success": true,
-  "projectFilePath": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\AtelierPro.csproj",
+  "projectFilePath": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\AtelierPro\\AtelierPro.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\MM Shadrina\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
-    "C:\\Users\\MM Shadrina\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
-    "C:\\Users\\MM Shadrina\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512"
+    "C:\\Users\\Marina\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\Marina\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\Marina\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Произошла ошибка при получении данных уязвимости пакета: Не удалось загрузить индекс службы для источника https://api.nuget.org/v3/index.json."
-    }
-  ]
+  "logs": []
 }

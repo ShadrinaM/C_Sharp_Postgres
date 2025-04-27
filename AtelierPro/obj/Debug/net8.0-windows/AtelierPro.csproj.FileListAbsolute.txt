@@ -11,8 +11,6 @@ C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-wi
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Invoices.resources
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Menu.resources
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Properties.Resources.resources
-C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.ReportsMaterial.resources
-C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.ReportsProducts.resources
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.csproj.GenerateResource.cache
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AssemblyInfoInputs.cache
@@ -55,3 +53,8 @@ M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.pdb
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.genruntimeconfig.cache
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\ref\AtelierPro.dll
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddInvoiceItemForm.resources
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.csproj.ResolveComReference.cache
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddInvoiceItemForm.resources
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Form1.resources
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Reports.resources

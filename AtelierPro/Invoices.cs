@@ -321,5 +321,126 @@ namespace AtelierPro
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void изменитьЭлементToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Проверяем, есть ли выделенная строка в dataGridViewInvoices (накладная)
+            if (dataGridViewInvoices.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Пожалуйста, выберите накладную.", "Информация",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Проверяем, есть ли выделенный элемент в dataGridViewInvoicesItems
+            if (dataGridViewInvoicesItems.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Пожалуйста, выберите элемент накладной для редактирования.", "Информация",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string invoiceType = comboBoxInvoices.SelectedItem.ToString();
+            DataGridViewRow selectedInvoiceRow = dataGridViewInvoices.SelectedRows[0];
+            DataGridViewRow selectedItemRow = dataGridViewInvoicesItems.SelectedRows[0];
+
+            try
+            {
+                if (invoiceType == "Приходная накладная")
+                {
+                    int invoiceId = Convert.ToInt32(selectedInvoiceRow.Cells["invoice_id"].Value);
+
+                    // Получаем ID элемента накладной (нужно добавить этот столбец в запрос)
+                    string materialName = selectedItemRow.Cells["Материал"].Value.ToString();
+                    string quantity = selectedItemRow.Cells["Количество"].Value.ToString();
+
+                    // Запрос для получения item_id выбранного элемента
+                    string query = @"SELECT ii.item_id 
+                            FROM IncomingItems ii
+                            JOIN Material m ON ii.material_id = m.material_id
+                            WHERE ii.invoice_id = @invoiceId 
+                            AND m.material_name = @materialName
+                            AND ii.quantity = @quantity";
+
+                    int itemId = 0;
+                    using (var cmd = new NpgsqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@invoiceId", invoiceId);
+                        cmd.Parameters.AddWithValue("@materialName", materialName);
+                        cmd.Parameters.AddWithValue("@quantity", decimal.Parse(quantity));
+
+                        var result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            itemId = Convert.ToInt32(result);
+                        }
+                    }
+
+                    if (itemId == 0)
+                    {
+                        MessageBox.Show("Не удалось найти ID элемента для редактирования.", "Ошибка",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Открываем форму в режиме редактирования
+                    AddInvoiceItemForm editForm = new AddInvoiceItemForm(connection, invoiceId, true, true, itemId);
+                    editForm.ShowDialog();
+                }
+                else // Расходная накладная
+                {
+                    int outgoingId = Convert.ToInt32(selectedInvoiceRow.Cells["outgoing_id"].Value);
+
+                    // Получаем ID элемента накладной (нужно добавить этот столбец в запрос)
+                    string materialName = selectedItemRow.Cells["Материал"].Value.ToString();
+                    string quantity = selectedItemRow.Cells["Количество"].Value.ToString();
+
+                    // Запрос для получения item_id выбранного элемента
+                    string query = @"SELECT oi.item_id 
+                            FROM OutgoingItems oi
+                            JOIN Material m ON oi.material_id = m.material_id
+                            WHERE oi.outgoing_id = @outgoingId 
+                            AND m.material_name = @materialName
+                            AND oi.quantity = @quantity";
+
+                    int itemId = 0;
+                    using (var cmd = new NpgsqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@outgoingId", outgoingId);
+                        cmd.Parameters.AddWithValue("@materialName", materialName);
+                        cmd.Parameters.AddWithValue("@quantity", decimal.Parse(quantity));
+
+                        var result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            itemId = Convert.ToInt32(result);
+                        }
+                    }
+
+                    if (itemId == 0)
+                    {
+                        MessageBox.Show("Не удалось найти ID элемента для редактирования.", "Ошибка",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Открываем форму в режиме редактирования
+                    AddInvoiceItemForm editForm = new AddInvoiceItemForm(connection, outgoingId, false, true, itemId);
+                    editForm.ShowDialog();
+                }
+
+                // Обновляем список элементов накладной после редактирования
+                if (dataGridViewInvoices.SelectedRows.Count > 0)
+                {
+                    Fill_dataGridViewInvoicesItems(dataGridViewInvoices,
+                        new DataGridViewCellEventArgs(0, dataGridViewInvoices.SelectedRows[0].Index));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при открытии формы редактирования элемента: {ex.Message}", "Ошибка",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

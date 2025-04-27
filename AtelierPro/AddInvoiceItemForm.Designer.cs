@@ -31,7 +31,7 @@
             comboBoxMaterials = new ComboBox();
             textBoxPrice = new TextBox();
             textBoxQuantity = new TextBox();
-            btnAdd = new Button();
+            btnOK = new Button();
             btnCancel = new Button();
             label1 = new Label();
             label2 = new Label();
@@ -48,39 +48,43 @@
             comboBoxMaterials.Font = new Font("Segoe UI", 14F);
             comboBoxMaterials.ForeColor = SystemColors.Control;
             comboBoxMaterials.FormattingEnabled = true;
-            comboBoxMaterials.Location = new Point(109, 135);
+            comboBoxMaterials.Location = new Point(125, 180);
+            comboBoxMaterials.Margin = new Padding(3, 4, 3, 4);
             comboBoxMaterials.Name = "comboBoxMaterials";
-            comboBoxMaterials.Size = new Size(298, 33);
+            comboBoxMaterials.Size = new Size(340, 39);
             comboBoxMaterials.TabIndex = 2;
             // 
             // textBoxPrice
             // 
-            textBoxPrice.Location = new Point(109, 195);
+            textBoxPrice.Location = new Point(125, 260);
+            textBoxPrice.Margin = new Padding(3, 4, 3, 4);
             textBoxPrice.Name = "textBoxPrice";
-            textBoxPrice.Size = new Size(298, 23);
+            textBoxPrice.Size = new Size(340, 27);
             textBoxPrice.TabIndex = 3;
             // 
             // textBoxQuantity
             // 
-            textBoxQuantity.Location = new Point(109, 245);
+            textBoxQuantity.Location = new Point(125, 327);
+            textBoxQuantity.Margin = new Padding(3, 4, 3, 4);
             textBoxQuantity.Name = "textBoxQuantity";
-            textBoxQuantity.Size = new Size(298, 23);
+            textBoxQuantity.Size = new Size(340, 27);
             textBoxQuantity.TabIndex = 4;
             // 
-            // btnAdd
+            // btnOK
             // 
-            btnAdd.BackColor = SystemColors.ActiveCaptionText;
-            btnAdd.FlatAppearance.BorderSize = 0;
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(109, 274);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(146, 33);
-            btnAdd.TabIndex = 14;
-            btnAdd.Text = "ОК";
-            btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
+            btnOK.BackColor = SystemColors.ActiveCaptionText;
+            btnOK.FlatAppearance.BorderSize = 0;
+            btnOK.FlatStyle = FlatStyle.Flat;
+            btnOK.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnOK.ForeColor = Color.White;
+            btnOK.Location = new Point(125, 365);
+            btnOK.Margin = new Padding(3, 4, 3, 4);
+            btnOK.Name = "btnOK";
+            btnOK.Size = new Size(167, 44);
+            btnOK.TabIndex = 14;
+            btnOK.Text = "ОК";
+            btnOK.UseVisualStyleBackColor = false;
+            btnOK.Click += btnOK_Click;
             // 
             // btnCancel
             // 
@@ -89,9 +93,10 @@
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(261, 274);
+            btnCancel.Location = new Point(298, 365);
+            btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(146, 33);
+            btnCancel.Size = new Size(167, 44);
             btnCancel.TabIndex = 15;
             btnCancel.Text = "Отмена";
             btnCancel.UseVisualStyleBackColor = false;
@@ -101,9 +106,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(109, 111);
+            label1.Location = new Point(125, 148);
             label1.Name = "label1";
-            label1.Size = new Size(84, 21);
+            label1.Size = new Size(107, 28);
             label1.TabIndex = 16;
             label1.Text = "Материал:";
             // 
@@ -111,9 +116,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(109, 171);
+            label2.Location = new Point(125, 228);
             label2.Name = "label2";
-            label2.Size = new Size(50, 21);
+            label2.Size = new Size(63, 28);
             label2.TabIndex = 17;
             label2.Text = "Цена:";
             // 
@@ -121,9 +126,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(109, 221);
+            label3.Location = new Point(125, 295);
             label3.Name = "label3";
-            label3.Size = new Size(96, 21);
+            label3.Size = new Size(124, 28);
             label3.TabIndex = 18;
             label3.Text = "Количество:";
             // 
@@ -133,8 +138,9 @@
             panelHeader.Controls.Add(TitleReport);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
+            panelHeader.Margin = new Padding(3, 4, 3, 4);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(511, 100);
+            panelHeader.Size = new Size(584, 133);
             panelHeader.TabIndex = 19;
             // 
             // TitleReport
@@ -142,26 +148,27 @@
             TitleReport.AutoSize = true;
             TitleReport.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             TitleReport.ForeColor = Color.White;
-            TitleReport.Location = new Point(12, 11);
+            TitleReport.Location = new Point(14, 15);
             TitleReport.Name = "TitleReport";
-            TitleReport.Size = new Size(486, 37);
+            TitleReport.Size = new Size(603, 46);
             TitleReport.TabIndex = 5;
             TitleReport.Text = "Добавление позиции в накладную";
             // 
             // AddInvoiceItemForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(511, 331);
+            ClientSize = new Size(584, 441);
             Controls.Add(panelHeader);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnCancel);
-            Controls.Add(btnAdd);
+            Controls.Add(btnOK);
             Controls.Add(textBoxQuantity);
             Controls.Add(textBoxPrice);
             Controls.Add(comboBoxMaterials);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "AddInvoiceItemForm";
             Text = "AddInvoiceItemForm";
             panelHeader.ResumeLayout(false);
@@ -175,7 +182,7 @@
         private ComboBox comboBoxMaterials;
         private TextBox textBoxPrice;
         private TextBox textBoxQuantity;
-        private Button btnAdd;
+        private Button btnOK;
         private Button btnCancel;
         private Label label1;
         private Label label2;
