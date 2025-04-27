@@ -30,6 +30,51 @@ namespace AtelierPro
 
         private void DataTables_Load(object sender, EventArgs e)
         {
+            Dictionary<string, string> tableNames = new Dictionary<string, string>
+            {
+                {"Изделия", "products"},
+                {"Поставщики", "suppliers"},
+                {"Заказы", "orders"},
+                {"Приходные накладные", "incominginvoices"},
+                {"Расходные накладные", "outgoinginvoices"},
+                {"Материалы", "material"},
+                {"Материалы на изделие", "materialforproduct"},
+                {"Позиции приходных накладных", "incomingitems"},
+                {"Позиции расходных накладных", "outgoingitems"}
+            };
+
+            // Получаем список таблиц из базы данных
+            string query = @"
+                SELECT table_name 
+                FROM information_schema.tables 
+                WHERE table_schema = 'public' 
+                AND table_type = 'BASE TABLE'
+                ORDER BY table_name";
+
+            using (var cmd = new NpgsqlCommand(query, connection))
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    string dbTableName = reader.GetString(0).ToLower();
+
+                    // Находим русское название по имени таблицы из БД
+                    var russianName = tableNames.FirstOrDefault(x =>
+                        x.Value.Equals(dbTableName, StringComparison.OrdinalIgnoreCase));
+
+                    if (russianName.Key != null)
+                    {
+                        // Добавляем в формате "Русское название (table_name)"
+                        comboBoxTables.Items.Add($"{russianName.Key} ({dbTableName})");
+                    }
+                    else
+                    {
+                        // Если нет в словаре, добавляем просто имя таблицы
+                        comboBoxTables.Items.Add(dbTableName);
+                    }
+                }
+            }
+
             // Предварительно загружает первую таблицу
             if (comboBoxTables.Items.Count > 0)
             {

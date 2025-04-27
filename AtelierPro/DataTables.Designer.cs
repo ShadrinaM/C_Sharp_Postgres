@@ -84,10 +84,9 @@
             comboBoxTables.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxTables.Font = new Font("Segoe UI", 14F);
             comboBoxTables.FormattingEnabled = true;
-            comboBoxTables.Items.AddRange(new object[] { "Изделия (Products)", "Поставщики (Suppliers)", "Заказы (Orders)", "Приходные накладные (IncomingInvoices)", "Расходные накладные (OutgoingInvoices)", "Материалы (Material)", "Нормы расхода (MaterialUsage)" });
             comboBoxTables.Location = new Point(12, 140);
             comboBoxTables.Name = "comboBoxTables";
-            comboBoxTables.Size = new Size(350, 33);
+            comboBoxTables.Size = new Size(770, 33);
             comboBoxTables.TabIndex = 1;
             comboBoxTables.SelectedIndexChanged += comboBoxTables_SelectedIndexChanged;
             // 
@@ -143,19 +142,19 @@
             // AddElementToolStripMenuItem
             // 
             AddElementToolStripMenuItem.Name = "AddElementToolStripMenuItem";
-            AddElementToolStripMenuItem.Size = new Size(180, 22);
+            AddElementToolStripMenuItem.Size = new Size(177, 22);
             AddElementToolStripMenuItem.Text = "Добавить элемент";
             // 
             // ChangeItemToolStripMenuItem
             // 
             ChangeItemToolStripMenuItem.Name = "ChangeItemToolStripMenuItem";
-            ChangeItemToolStripMenuItem.Size = new Size(180, 22);
+            ChangeItemToolStripMenuItem.Size = new Size(177, 22);
             ChangeItemToolStripMenuItem.Text = "Изменить элемент";
             // 
             // RemoveElementToolStripMenuItem
             // 
             RemoveElementToolStripMenuItem.Name = "RemoveElementToolStripMenuItem";
-            RemoveElementToolStripMenuItem.Size = new Size(180, 22);
+            RemoveElementToolStripMenuItem.Size = new Size(177, 22);
             RemoveElementToolStripMenuItem.Text = "Удалить элемент";
             // 
             // DataTables
