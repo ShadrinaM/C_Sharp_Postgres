@@ -246,19 +246,19 @@ namespace AtelierPro
                     SELECT 
                         p.product_name AS Изделие,
                         m.material_name AS Материал,
-                        SUM(mu.quantity) AS Количество,
+                        SUM(mfp.quantity) AS Количество,
                         m.unit AS ""Единица измерения"",
                         ROUND((SELECT AVG(ii.unit_price) 
-                         FROM IncomingItems ii 
-                         WHERE ii.material_id = m.material_id),2) AS ""Средняя цена"",
-                        ROUND(SUM(mu.quantity) * (SELECT AVG(ii.unit_price) 
-                                           FROM IncomingItems ii 
-                                           WHERE ii.material_id = m.material_id),2) AS ""Общая стоимость""
+                                FROM IncomingItems ii 
+                                WHERE ii.material_id = m.material_id), 2) AS ""Средняя цена"",
+                        ROUND(SUM(mfp.quantity) * (SELECT AVG(ii.unit_price) 
+                                                    FROM IncomingItems ii 
+                                                    WHERE ii.material_id = m.material_id), 2) AS ""Общая стоимость""
                     FROM 
                         Products p
+                        JOIN MaterialForProduct mfp ON p.product_id = mfp.product_id
+                        JOIN Material m ON mfp.material_id = m.material_id
                         JOIN Orders o ON p.order_id = o.order_id
-                        JOIN MaterialUsage mu ON p.usage_id = mu.usage_id
-                        JOIN Material m ON mu.material_id = m.material_id
                     WHERE 
                         p.product_name = ANY(@selectedProducts)
                         AND o.order_date BETWEEN @startDate AND @endDate
@@ -297,7 +297,7 @@ namespace AtelierPro
             }
 
         }
-        
+
         /// <summary>
         /// Экспорт в эксель для отчёта по Изделиям
         /// </summary>
@@ -329,14 +329,46 @@ namespace AtelierPro
                     Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.ActiveSheet;
                     worksheet.Name = "Отчет по изделиям";
 
+                    // Добавляем метаданные отчета
+                    int currentRow = 1;
+
+                    // Тип отчета
+                    worksheet.Cells[currentRow, 1] = "Тип отчёта";
+                    worksheet.Cells[currentRow, 1].Interior.Color = Microsoft.Office.Interop.Excel.XlRgbColor.rgbLightGray;
+                    worksheet.Cells[currentRow, 2] = comboBox.Text;
+                    currentRow++;
+
+                    // Дата начала
+                    worksheet.Cells[currentRow, 1] = "Дата начала";
+                    worksheet.Cells[currentRow, 1].Interior.Color = Microsoft.Office.Interop.Excel.XlRgbColor.rgbLightGray;
+                    worksheet.Cells[currentRow, 2] = dateTimePickerStart.Value.ToShortDateString();
+                    currentRow++;
+
+                    // Дата конца
+                    worksheet.Cells[currentRow, 1] = "Дата конца";
+                    worksheet.Cells[currentRow, 1].Interior.Color = Microsoft.Office.Interop.Excel.XlRgbColor.rgbLightGray;
+                    worksheet.Cells[currentRow, 2] = dateTimePickerEnd.Value.ToShortDateString();
+                    currentRow++;
+
+                    // Изделия
+                    worksheet.Cells[currentRow, 1] = "Изделия";
+                    worksheet.Cells[currentRow, 1].Interior.Color = Microsoft.Office.Interop.Excel.XlRgbColor.rgbLightGray;
+                    string productsList = string.Join(", ", checkedListBox.CheckedItems.Cast<string>().ToArray());
+                    worksheet.Cells[currentRow, 2] = productsList;
+                    currentRow++;
+
+                    // Пустая строка после метаданных
+                    currentRow++;
+
                     // Записываем заголовки столбцов
                     for (int i = 1; i <= dataGridView.Columns.Count; i++)
                     {
-                        worksheet.Cells[1, i] = dataGridView.Columns[i - 1].HeaderText;
+                        worksheet.Cells[currentRow, i] = dataGridView.Columns[i - 1].HeaderText;
                         // Форматируем заголовки
-                        worksheet.Cells[1, i].Font.Bold = true;
-                        worksheet.Cells[1, i].Interior.Color = Microsoft.Office.Interop.Excel.XlRgbColor.rgbLightGray;
+                        worksheet.Cells[currentRow, i].Font.Bold = true;
+                        worksheet.Cells[currentRow, i].Interior.Color = Microsoft.Office.Interop.Excel.XlRgbColor.rgbLightGray;
                     }
+                    currentRow++;
 
                     // Записываем данные
                     for (int i = 0; i < dataGridView.Rows.Count; i++)
@@ -345,9 +377,10 @@ namespace AtelierPro
                         {
                             if (dataGridView.Rows[i].Cells[j].Value != null)
                             {
-                                worksheet.Cells[i + 2, j + 1] = dataGridView.Rows[i].Cells[j].Value.ToString();
+                                worksheet.Cells[currentRow, j + 1] = dataGridView.Rows[i].Cells[j].Value.ToString();
                             }
                         }
+                        currentRow++;
                     }
 
                     // Автонастройка ширины столбцов
@@ -364,6 +397,10 @@ namespace AtelierPro
                             range.NumberFormat = "#,##0.00";
                         }
                     }
+
+                    // Выделяем метаданные жирным
+                    Microsoft.Office.Interop.Excel.Range metaRange = worksheet.Range["A1:A4"];
+                    metaRange.Font.Bold = true;
 
                     // Сохраняем файл
                     workbook.SaveAs(saveFileDialog.FileName,
@@ -385,6 +422,6 @@ namespace AtelierPro
                 MessageBox.Show($"Ошибка при экспорте в Excel: {ex.Message}", "Ошибка",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }          
+        }
     }
 }

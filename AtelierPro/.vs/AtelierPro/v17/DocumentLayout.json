@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|m:\\git\\c_sharp_postgres\\atelierpro\\reports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:reports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|m:\\git\\c_sharp_postgres\\atelierpro\\reports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:reports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|m:\\git\\c_sharp_postgres\\atelierpro\\datatables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:datatables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:datatables.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|m:\\git\\c_sharp_postgres\\atelierpro\\datatables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|M:\\Git\\C_Sharp_Postgres\\AtelierPro\\datatables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F7C3BC38-6891-4750-8CD2-8F90664E98AF}|AtelierPro.csproj|solutionrelative:datatables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -47,6 +55,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Reports.cs",
+              "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\Reports.cs",
+              "RelativeDocumentMoniker": "Reports.cs",
+              "ToolTip": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\Reports.cs",
+              "RelativeToolTip": "Reports.cs",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAkwBoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T16:00:37.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Reports.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\Reports.cs",
+              "RelativeDocumentMoniker": "Reports.cs",
+              "ToolTip": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\Reports.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Reports.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T16:00:33.743Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "DataTables.cs",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\DataTables.cs",
               "RelativeDocumentMoniker": "DataTables.cs",
@@ -59,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "DataTables.Designer.cs",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\DataTables.Designer.cs",
               "RelativeDocumentMoniker": "DataTables.Designer.cs",
@@ -67,24 +100,22 @@
               "RelativeToolTip": "DataTables.Designer.cs",
               "ViewState": "AgIAADYAAAAAAAAAAAAowFUAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T22:42:14.498Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-27T22:42:14.498Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "DataTables.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\DataTables.cs",
               "RelativeDocumentMoniker": "DataTables.cs",
               "ToolTip": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\DataTables.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "RelativeToolTip": "DataTables.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T22:50:37.71Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+              "WhenOpened": "2025-04-27T22:50:37.71Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "AddInvoiceItemForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\AddInvoiceItemForm.cs",
               "RelativeDocumentMoniker": "AddInvoiceItemForm.cs",
@@ -94,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "AddInvoiceItemForm.Designer.cs",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\AddInvoiceItemForm.Designer.cs",
               "RelativeDocumentMoniker": "AddInvoiceItemForm.Designer.cs",
@@ -106,7 +137,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "AddInvoiceItemForm.cs",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\AddInvoiceItemForm.cs",
               "RelativeDocumentMoniker": "AddInvoiceItemForm.cs",
@@ -118,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Invoices.cs",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\Invoices.cs",
               "RelativeDocumentMoniker": "Invoices.cs",
@@ -126,12 +157,11 @@
               "RelativeToolTip": "Invoices.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAADwv0MBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T20:57:54.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-24T20:57:54.456Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Menu.cs",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\AtelierPro\\Menu.cs",
               "RelativeDocumentMoniker": "Menu.cs",
