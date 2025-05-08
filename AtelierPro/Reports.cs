@@ -23,7 +23,6 @@ namespace AtelierPro
         /// </summary>
         private void WinForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // Показываем главное окно при закрытии текущего
             mainForm.Show();
         }
 
@@ -37,8 +36,6 @@ namespace AtelierPro
             // Закрываем текущее окно
             this.Close();
         }
-
-
 
         /// <summary>
         /// Донастройка значений по умолчанию
@@ -73,8 +70,6 @@ namespace AtelierPro
             });
         }
 
-
-
         /// <summary>
         /// Обновление checkedListBox по изменению comboBox
         /// </summary>
@@ -107,6 +102,23 @@ namespace AtelierPro
                 {
                     checkedListBox.Items.Clear(); // Очищаем список перед заполнением
 
+                    // Добавляем элементы (пример)
+                    checkedListBox.Items.Add("Выбрать все");
+                    // Обработка выбора "Выбрать все"
+                    checkedListBox.ItemCheck += (sender, e) =>
+                    {
+                        if (e.Index == 0) // Если выбран первый элемент ("Выбрать все")
+                        {
+                            bool isChecked = (e.NewValue == CheckState.Checked);
+
+                            // Ставим или снимаем галочки у всех остальных элементов
+                            for (int i = 1; i < checkedListBox.Items.Count; i++)
+                            {
+                                checkedListBox.SetItemChecked(i, isChecked);
+                            }
+                        }
+                    };
+
                     while (reader.Read())
                     {
                         checkedListBox.Items.Add(reader["material_name"].ToString());
@@ -131,6 +143,23 @@ namespace AtelierPro
                 using (var reader = cmd.ExecuteReader())
                 {
                     checkedListBox.Items.Clear(); // Очищаем список перед заполнением
+
+                    // Добавляем элементы (пример)
+                    checkedListBox.Items.Add("Выбрать все");
+                    // Обработка выбора "Выбрать все"
+                    checkedListBox.ItemCheck += (sender, e) =>
+                    {
+                        if (e.Index == 0) // Если выбран первый элемент ("Выбрать все")
+                        {
+                            bool isChecked = (e.NewValue == CheckState.Checked);
+
+                            // Ставим или снимаем галочки у всех остальных элементов
+                            for (int i = 1; i < checkedListBox.Items.Count; i++)
+                            {
+                                checkedListBox.SetItemChecked(i, isChecked);
+                            }
+                        }
+                    };
 
                     while (reader.Read())
                     {
@@ -350,12 +379,21 @@ namespace AtelierPro
                     worksheet.Cells[currentRow, 2] = dateTimePickerEnd.Value.ToShortDateString();
                     currentRow++;
 
-                    // Изделия
-                    worksheet.Cells[currentRow, 1] = "Изделия";
+                    // Заголовок для списка изделий
+                    worksheet.Cells[currentRow, 1] = "Выбранные изделия";
                     worksheet.Cells[currentRow, 1].Interior.Color = Microsoft.Office.Interop.Excel.XlRgbColor.rgbLightGray;
-                    string productsList = string.Join(", ", checkedListBox.CheckedItems.Cast<string>().ToArray());
-                    worksheet.Cells[currentRow, 2] = productsList;
-                    currentRow++;
+
+                    // Записываем выбранные изделия в столбец (по одному на строку)
+                    foreach (string item in checkedListBox.CheckedItems)
+                    {
+                        if (item == "Выбрать все") {        
+                            worksheet.Cells[currentRow, 2] = "Выбраны все изделия:";
+                            currentRow++;
+                            continue;
+                        }
+                        worksheet.Cells[currentRow, 2] = item;
+                        currentRow++;
+                    }
 
                     // Пустая строка после метаданных
                     currentRow++;

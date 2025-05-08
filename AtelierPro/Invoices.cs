@@ -265,6 +265,10 @@ namespace AtelierPro
 
                 dataGridViewInvoicesItems.AutoResizeColumns();
                 dataGridViewInvoicesItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                // Настройка выделения строк
+                dataGridViewInvoicesItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridViewInvoicesItems.MultiSelect = false;
             }
             catch (Exception ex)
             {
@@ -273,7 +277,10 @@ namespace AtelierPro
             }
         }
 
-        private void добавитьЭлементToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Добавление элемента из накладной
+        /// </summary>
+        private void AddItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Проверяем, есть ли выделенная строка в dataGridViewInvoices
             if (dataGridViewInvoices.SelectedRows.Count == 0)
@@ -295,7 +302,7 @@ namespace AtelierPro
                     int invoiceId = Convert.ToInt32(selectedRow.Cells["invoice_id"].Value);
 
                     // Создаем и показываем форму для добавления элемента приходной накладной
-                    AddInvoiceItemForm addForm = new AddInvoiceItemForm(connection, invoiceId, true);
+                    AddEditInvoiceItemForm addForm = new AddEditInvoiceItemForm(connection, invoiceId, true);
                     addForm.ShowDialog();
                 }
                 else // Расходная накладная
@@ -304,7 +311,7 @@ namespace AtelierPro
                     int outgoingId = Convert.ToInt32(selectedRow.Cells["outgoing_id"].Value);
 
                     // Создаем и показываем форму для добавления элемента расходной накладной
-                    AddInvoiceItemForm addForm = new AddInvoiceItemForm(connection, outgoingId, false);
+                    AddEditInvoiceItemForm addForm = new AddEditInvoiceItemForm(connection, outgoingId, false);
                     addForm.ShowDialog();
                 }
 
@@ -322,7 +329,10 @@ namespace AtelierPro
             }
         }
 
-        private void изменитьЭлементToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Изменение элемента из накладной
+        /// </summary>
+        private void ChangeItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Проверяем, есть ли выделенная строка в dataGridViewInvoices (накладная)
             if (dataGridViewInvoices.SelectedRows.Count == 0)
@@ -384,7 +394,7 @@ namespace AtelierPro
                     }
 
                     // Открываем форму в режиме редактирования
-                    AddInvoiceItemForm editForm = new AddInvoiceItemForm(connection, invoiceId, true, true, itemId);
+                    AddEditInvoiceItemForm editForm = new AddEditInvoiceItemForm(connection, invoiceId, true, true, itemId);
                     editForm.ShowDialog();
                 }
                 else // Расходная накладная
@@ -425,7 +435,7 @@ namespace AtelierPro
                     }
 
                     // Открываем форму в режиме редактирования
-                    AddInvoiceItemForm editForm = new AddInvoiceItemForm(connection, outgoingId, false, true, itemId);
+                    AddEditInvoiceItemForm editForm = new AddEditInvoiceItemForm(connection, outgoingId, false, true, itemId);
                     editForm.ShowDialog();
                 }
 
@@ -440,6 +450,249 @@ namespace AtelierPro
             {
                 MessageBox.Show($"Ошибка при открытии формы редактирования элемента: {ex.Message}", "Ошибка",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Удаление элемента из накладной
+        /// </summary>
+        private void RemoveItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Проверяем, есть ли выделенная строка в dataGridViewInvoices (накладная)
+            if (dataGridViewInvoices.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Пожалуйста, выберите накладную.", "Информация",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Проверяем, есть ли выделенный элемент в dataGridViewInvoicesItems
+            if (dataGridViewInvoicesItems.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Пожалуйста, выберите элемент накладной для удаления.", "Информация",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Запрашиваем подтверждение удаления
+            DialogResult result = MessageBox.Show("Вы уверены, что хотите удалить выбранный элемент?", "Подтверждение удаления",
+                                                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes)
+            {
+                return;
+            }
+
+            string invoiceType = comboBoxInvoices.SelectedItem.ToString();
+            DataGridViewRow selectedInvoiceRow = dataGridViewInvoices.SelectedRows[0];
+            DataGridViewRow selectedItemRow = dataGridViewInvoicesItems.SelectedRows[0];
+
+            try
+            {
+                if (invoiceType == "Приходная накладная")
+                {
+                    int invoiceId = Convert.ToInt32(selectedInvoiceRow.Cells["invoice_id"].Value);
+                    string materialName = selectedItemRow.Cells["Материал"].Value.ToString();
+                    decimal quantity = Convert.ToDecimal(selectedItemRow.Cells["Количество"].Value);
+
+                    // Получаем ID элемента для удаления
+                    string getItemIdQuery = @"SELECT ii.item_id 
+                                   FROM IncomingItems ii
+                                   JOIN Material m ON ii.material_id = m.material_id
+                                   WHERE ii.invoice_id = @invoiceId 
+                                   AND m.material_name = @materialName
+                                   AND ii.quantity = @quantity";
+
+                    int itemId;
+                    using (var cmd = new NpgsqlCommand(getItemIdQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@invoiceId", invoiceId);
+                        cmd.Parameters.AddWithValue("@materialName", materialName);
+                        cmd.Parameters.AddWithValue("@quantity", quantity);
+
+                        itemId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
+                    // Удаляем элемент
+                    string deleteQuery = "DELETE FROM IncomingItems WHERE item_id = @itemId";
+                    using (var cmd = new NpgsqlCommand(deleteQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@itemId", itemId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                else // Расходная накладная
+                {
+                    int outgoingId = Convert.ToInt32(selectedInvoiceRow.Cells["outgoing_id"].Value);
+                    string materialName = selectedItemRow.Cells["Материал"].Value.ToString();
+                    decimal quantity = Convert.ToDecimal(selectedItemRow.Cells["Количество"].Value);
+
+                    // Получаем ID элемента для удаления
+                    string getItemIdQuery = @"SELECT oi.item_id 
+                                   FROM OutgoingItems oi
+                                   JOIN Material m ON oi.material_id = m.material_id
+                                   WHERE oi.outgoing_id = @outgoingId 
+                                   AND m.material_name = @materialName
+                                   AND oi.quantity = @quantity";
+
+                    int itemId;
+                    using (var cmd = new NpgsqlCommand(getItemIdQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@outgoingId", outgoingId);
+                        cmd.Parameters.AddWithValue("@materialName", materialName);
+                        cmd.Parameters.AddWithValue("@quantity", quantity);
+
+                        itemId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
+                    // Удаляем элемент
+                    string deleteQuery = "DELETE FROM OutgoingItems WHERE item_id = @itemId";
+                    using (var cmd = new NpgsqlCommand(deleteQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@itemId", itemId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                // Обновляем список элементов накладной после удаления
+                Fill_dataGridViewInvoicesItems(dataGridViewInvoices,
+                    new DataGridViewCellEventArgs(0, dataGridViewInvoices.SelectedRows[0].Index));
+
+                MessageBox.Show("Элемент успешно удален.", "Успех",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при удалении элемента: {ex.Message}", "Ошибка",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Добавление накладной
+        /// </summary>
+        private void AddInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string invoiceType = comboBoxInvoices.SelectedItem.ToString();
+
+            try
+            {
+                if (invoiceType == "Приходная накладная")
+                {
+                    AddEditInvoiceForm form = new AddEditInvoiceForm(connection, true);
+                    form.ShowDialog();                    
+                }
+                else
+                {
+                    AddEditInvoiceForm form = new AddEditInvoiceForm(connection, false);
+                    form.ShowDialog();                    
+                }
+
+                Fill_dataGridViewInvoices();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при добавлении накладной: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Изменение накладной
+        /// </summary>
+        private void ChangeInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewInvoices.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Пожалуйста, выберите накладную для редактирования.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string invoiceType = comboBoxInvoices.SelectedItem.ToString();
+            DataGridViewRow selectedRow = dataGridViewInvoices.SelectedRows[0];
+
+            try
+            {
+                if (invoiceType == "Приходная накладная")
+                {
+                    int invoiceId = Convert.ToInt32(selectedRow.Cells["invoice_id"].Value);
+                    AddEditInvoiceForm form = new AddEditInvoiceForm(connection, true, true, invoiceId);
+                    form.ShowDialog();
+                }
+                else
+                {
+                    int outgoingId = Convert.ToInt32(selectedRow.Cells["outgoing_id"].Value);
+                    AddEditInvoiceForm form = new AddEditInvoiceForm(connection, false, true, outgoingId);
+                    form.ShowDialog();
+                }
+
+                Fill_dataGridViewInvoices();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при редактировании накладной: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Удаление накладной
+        /// </summary>
+        private void RemoveInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewInvoices.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Пожалуйста, выберите накладную для удаления.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Вы уверены, что хотите удалить выбранную накладную?", "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes)
+                return;
+
+            string invoiceType = comboBoxInvoices.SelectedItem.ToString();
+            DataGridViewRow selectedRow = dataGridViewInvoices.SelectedRows[0];
+
+            try
+            {
+                if (invoiceType == "Приходная накладная")
+                {
+                    int invoiceId = Convert.ToInt32(selectedRow.Cells["invoice_id"].Value);
+                    string deleteItems = "DELETE FROM IncomingItems WHERE invoice_id = @id";
+                    string deleteInvoice = "DELETE FROM IncomingInvoices WHERE invoice_id = @id";
+
+                    using (var cmd = new NpgsqlCommand(deleteItems, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", invoiceId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    using (var cmd = new NpgsqlCommand(deleteInvoice, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", invoiceId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    int outgoingId = Convert.ToInt32(selectedRow.Cells["outgoing_id"].Value);
+                    string deleteItems = "DELETE FROM OutgoingItems WHERE outgoing_id = @id";
+                    string deleteInvoice = "DELETE FROM OutgoingInvoices WHERE outgoing_id = @id";
+
+                    using (var cmd = new NpgsqlCommand(deleteItems, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", outgoingId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    using (var cmd = new NpgsqlCommand(deleteInvoice, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", outgoingId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                Fill_dataGridViewInvoices();
+                dataGridViewInvoicesItems.DataSource = null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при удалении накладной: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

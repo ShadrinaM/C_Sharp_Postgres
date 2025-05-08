@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Invoices));
             panelHeader = new Panel();
-            TitleReport = new Label();
+            btnBack = new Button();
             lblTitle = new Label();
             picLogo = new PictureBox();
+            TitleReport = new Label();
             comboBoxInvoices = new ComboBox();
             dataGridViewInvoices = new DataGridView();
             menuStrip1 = new MenuStrip();
@@ -54,50 +55,68 @@
             // 
             // panelHeader
             // 
-            panelHeader.BackColor = SystemColors.ActiveCaptionText;
-            panelHeader.Controls.Add(TitleReport);
+            panelHeader.BackColor = Color.FromArgb(29, 29, 27);
+            panelHeader.Controls.Add(btnBack);
             panelHeader.Controls.Add(lblTitle);
             panelHeader.Controls.Add(picLogo);
+            panelHeader.Controls.Add(TitleReport);
             panelHeader.Controls.Add(comboBoxInvoices);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 30);
             panelHeader.Margin = new Padding(3, 4, 3, 4);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1029, 133);
+            panelHeader.Padding = new Padding(10);
+            panelHeader.Size = new Size(982, 97);
             panelHeader.TabIndex = 0;
             // 
-            // TitleReport
+            // btnBack
             // 
-            TitleReport.AutoSize = true;
-            TitleReport.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            TitleReport.ForeColor = Color.White;
-            TitleReport.Location = new Point(14, 15);
-            TitleReport.Name = "TitleReport";
-            TitleReport.Size = new Size(280, 46);
-            TitleReport.TabIndex = 5;
-            TitleReport.Text = "Тип накладной:";
+            btnBack.BackColor = Color.FromArgb(29, 29, 27);
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(7, 10);
+            btnBack.Margin = new Padding(3, 4, 3, 4);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(33, 74);
+            btnBack.TabIndex = 8;
+            btnBack.Text = "<";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Segoe UI", 30F, FontStyle.Bold);
+            lblTitle.Font = new Font("Segoe UI", 28F, FontStyle.Bold);
             lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(685, 41);
+            lblTitle.Location = new Point(560, 22);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(266, 67);
-            lblTitle.TabIndex = 1;
+            lblTitle.Size = new Size(249, 62);
+            lblTitle.TabIndex = 7;
             lblTitle.Text = "AtelierPro";
             // 
             // picLogo
             // 
             picLogo.Image = (Image)resources.GetObject("picLogo.Image");
-            picLogo.Location = new Point(935, 20);
+            picLogo.Location = new Point(814, 17);
             picLogo.Margin = new Padding(3, 4, 3, 4);
             picLogo.Name = "picLogo";
-            picLogo.Size = new Size(80, 93);
+            picLogo.Size = new Size(155, 66);
             picLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            picLogo.TabIndex = 0;
+            picLogo.TabIndex = 6;
             picLogo.TabStop = false;
+            // 
+            // TitleReport
+            // 
+            TitleReport.AutoSize = true;
+            TitleReport.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            TitleReport.ForeColor = Color.White;
+            TitleReport.Location = new Point(44, 10);
+            TitleReport.Name = "TitleReport";
+            TitleReport.Size = new Size(204, 35);
+            TitleReport.TabIndex = 5;
+            TitleReport.Text = "Тип накладной:";
             // 
             // comboBoxInvoices
             // 
@@ -106,7 +125,7 @@
             comboBoxInvoices.Font = new Font("Segoe UI", 14F);
             comboBoxInvoices.ForeColor = SystemColors.Control;
             comboBoxInvoices.FormattingEnabled = true;
-            comboBoxInvoices.Location = new Point(14, 68);
+            comboBoxInvoices.Location = new Point(46, 44);
             comboBoxInvoices.Margin = new Padding(3, 4, 3, 4);
             comboBoxInvoices.Name = "comboBoxInvoices";
             comboBoxInvoices.Size = new Size(399, 39);
@@ -122,12 +141,12 @@
             dataGridViewInvoices.BorderStyle = BorderStyle.None;
             dataGridViewInvoices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewInvoices.GridColor = SystemColors.ActiveCaptionText;
-            dataGridViewInvoices.Location = new Point(14, 173);
+            dataGridViewInvoices.Location = new Point(14, 135);
             dataGridViewInvoices.Margin = new Padding(3, 4, 3, 4);
             dataGridViewInvoices.Name = "dataGridViewInvoices";
             dataGridViewInvoices.ReadOnly = true;
             dataGridViewInvoices.RowHeadersWidth = 51;
-            dataGridViewInvoices.Size = new Size(1001, 248);
+            dataGridViewInvoices.Size = new Size(956, 233);
             dataGridViewInvoices.TabIndex = 2;
             // 
             // menuStrip1
@@ -139,7 +158,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
-            menuStrip1.Size = new Size(1029, 30);
+            menuStrip1.Size = new Size(982, 30);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -156,18 +175,21 @@
             AddElementToolStripMenuItem.Name = "AddElementToolStripMenuItem";
             AddElementToolStripMenuItem.Size = new Size(241, 26);
             AddElementToolStripMenuItem.Text = "Добавить накладную";
+            AddElementToolStripMenuItem.Click += AddInvoiceToolStripMenuItem_Click;
             // 
             // ChangeItemToolStripMenuItem
             // 
             ChangeItemToolStripMenuItem.Name = "ChangeItemToolStripMenuItem";
             ChangeItemToolStripMenuItem.Size = new Size(241, 26);
             ChangeItemToolStripMenuItem.Text = "Изменить накладную";
+            ChangeItemToolStripMenuItem.Click += ChangeInvoiceToolStripMenuItem_Click;
             // 
             // RemoveElementToolStripMenuItem
             // 
             RemoveElementToolStripMenuItem.Name = "RemoveElementToolStripMenuItem";
             RemoveElementToolStripMenuItem.Size = new Size(241, 26);
             RemoveElementToolStripMenuItem.Text = "Удалить накладную";
+            RemoveElementToolStripMenuItem.Click += RemoveInvoiceToolStripMenuItem_Click;
             // 
             // редактироватьЭлементToolStripMenuItem
             // 
@@ -182,20 +204,21 @@
             добавитьЭлементToolStripMenuItem.Name = "добавитьЭлементToolStripMenuItem";
             добавитьЭлементToolStripMenuItem.Size = new Size(224, 26);
             добавитьЭлементToolStripMenuItem.Text = "Добавить элемент";
-            добавитьЭлементToolStripMenuItem.Click += добавитьЭлементToolStripMenuItem_Click;
+            добавитьЭлементToolStripMenuItem.Click += AddItemToolStripMenuItem_Click;
             // 
             // изменитьЭлементToolStripMenuItem
             // 
             изменитьЭлементToolStripMenuItem.Name = "изменитьЭлементToolStripMenuItem";
             изменитьЭлементToolStripMenuItem.Size = new Size(224, 26);
             изменитьЭлементToolStripMenuItem.Text = "Изменить элемент";
-            изменитьЭлементToolStripMenuItem.Click += изменитьЭлементToolStripMenuItem_Click;
+            изменитьЭлементToolStripMenuItem.Click += ChangeItemToolStripMenuItem_Click;
             // 
             // удалитьЭлементToolStripMenuItem
             // 
             удалитьЭлементToolStripMenuItem.Name = "удалитьЭлементToolStripMenuItem";
             удалитьЭлементToolStripMenuItem.Size = new Size(224, 26);
             удалитьЭлементToolStripMenuItem.Text = "Удалить элемент";
+            удалитьЭлементToolStripMenuItem.Click += RemoveItemToolStripMenuItem_Click;
             // 
             // dataGridViewInvoicesItems
             // 
@@ -206,12 +229,12 @@
             dataGridViewInvoicesItems.BorderStyle = BorderStyle.None;
             dataGridViewInvoicesItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewInvoicesItems.GridColor = SystemColors.ActiveCaptionText;
-            dataGridViewInvoicesItems.Location = new Point(14, 429);
+            dataGridViewInvoicesItems.Location = new Point(12, 376);
             dataGridViewInvoicesItems.Margin = new Padding(3, 4, 3, 4);
             dataGridViewInvoicesItems.Name = "dataGridViewInvoicesItems";
             dataGridViewInvoicesItems.ReadOnly = true;
             dataGridViewInvoicesItems.RowHeadersWidth = 51;
-            dataGridViewInvoicesItems.Size = new Size(1001, 355);
+            dataGridViewInvoicesItems.Size = new Size(955, 264);
             dataGridViewInvoicesItems.TabIndex = 5;
             // 
             // Invoices
@@ -219,13 +242,13 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1029, 800);
+            ClientSize = new Size(982, 653);
             Controls.Add(dataGridViewInvoicesItems);
             Controls.Add(dataGridViewInvoices);
             Controls.Add(panelHeader);
             Controls.Add(menuStrip1);
             Margin = new Padding(3, 4, 3, 4);
-            MinimumSize = new Size(1044, 836);
+            MinimumSize = new Size(1000, 700);
             Name = "Invoices";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Просмотр таблиц";
@@ -244,8 +267,6 @@
         #endregion
 
         private Panel panelHeader;
-        private Label lblTitle;
-        private PictureBox picLogo;
         private ComboBox comboBoxInvoices;
         private DataGridView dataGridViewInvoices;
         private MenuStrip menuStrip1;
@@ -259,5 +280,8 @@
         private ToolStripMenuItem удалитьЭлементToolStripMenuItem;
         private Label TitleReport;
         private DataGridView dataGridViewInvoicesItems;
+        private Label lblTitle;
+        private PictureBox picLogo;
+        private Button btnBack;
     }
 }

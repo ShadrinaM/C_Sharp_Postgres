@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reports));
             panelHeader = new Panel();
-            comboBox = new ComboBox();
-            TitleReport = new Label();
+            btnBack = new Button();
             lblTitle = new Label();
             picLogo = new PictureBox();
+            label1 = new Label();
+            comboBox = new ComboBox();
             dataGridView = new DataGridView();
-            btnBack = new Button();
             DataStart = new Label();
             DataEnd = new Label();
             dateTimePickerStart = new DateTimePicker();
@@ -51,16 +51,68 @@
             // 
             // panelHeader
             // 
-            panelHeader.BackColor = SystemColors.ActiveCaptionText;
-            panelHeader.Controls.Add(comboBox);
-            panelHeader.Controls.Add(TitleReport);
+            panelHeader.BackColor = Color.FromArgb(29, 29, 27);
+            panelHeader.Controls.Add(btnBack);
             panelHeader.Controls.Add(lblTitle);
             panelHeader.Controls.Add(picLogo);
+            panelHeader.Controls.Add(label1);
+            panelHeader.Controls.Add(comboBox);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
+            panelHeader.Margin = new Padding(3, 4, 3, 4);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(900, 100);
+            panelHeader.Padding = new Padding(10);
+            panelHeader.Size = new Size(982, 97);
             panelHeader.TabIndex = 0;
+            // 
+            // btnBack
+            // 
+            btnBack.BackColor = Color.FromArgb(29, 29, 27);
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(10, 14);
+            btnBack.Margin = new Padding(3, 4, 3, 4);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(33, 69);
+            btnBack.TabIndex = 18;
+            btnBack.Text = "<";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += this.btnBack_Click;
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI", 28F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Location = new Point(560, 21);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(249, 62);
+            lblTitle.TabIndex = 17;
+            lblTitle.Text = "AtelierPro";
+            // 
+            // picLogo
+            // 
+            picLogo.Image = (Image)resources.GetObject("picLogo.Image");
+            picLogo.Location = new Point(814, 16);
+            picLogo.Margin = new Padding(3, 4, 3, 4);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(155, 66);
+            picLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            picLogo.TabIndex = 16;
+            picLogo.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(49, 10);
+            label1.Name = "label1";
+            label1.Size = new Size(152, 35);
+            label1.TabIndex = 15;
+            label1.Text = "Тип отчёта:";
             // 
             // comboBox
             // 
@@ -69,43 +121,12 @@
             comboBox.Font = new Font("Segoe UI", 14F);
             comboBox.ForeColor = SystemColors.Control;
             comboBox.FormattingEnabled = true;
-            comboBox.Location = new Point(13, 51);
+            comboBox.Location = new Point(49, 46);
+            comboBox.Margin = new Padding(3, 4, 3, 4);
             comboBox.Name = "comboBox";
-            comboBox.Size = new Size(443, 33);
+            comboBox.Size = new Size(486, 39);
             comboBox.TabIndex = 14;
             comboBox.SelectedIndexChanged += comboBox_SelectedIndexChanged;
-            // 
-            // TitleReport
-            // 
-            TitleReport.AutoSize = true;
-            TitleReport.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            TitleReport.ForeColor = Color.White;
-            TitleReport.Location = new Point(13, 5);
-            TitleReport.Name = "TitleReport";
-            TitleReport.Size = new Size(166, 37);
-            TitleReport.TabIndex = 2;
-            TitleReport.Text = "Тип отчёта:";
-            // 
-            // lblTitle
-            // 
-            lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Segoe UI", 30F, FontStyle.Bold);
-            lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(599, 31);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(213, 54);
-            lblTitle.TabIndex = 1;
-            lblTitle.Text = "AtelierPro";
-            // 
-            // picLogo
-            // 
-            picLogo.Image = (Image)resources.GetObject("picLogo.Image");
-            picLogo.Location = new Point(818, 15);
-            picLogo.Name = "picLogo";
-            picLogo.Size = new Size(70, 70);
-            picLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            picLogo.TabIndex = 0;
-            picLogo.TabStop = false;
             // 
             // dataGridView
             // 
@@ -116,34 +137,21 @@
             dataGridView.BorderStyle = BorderStyle.None;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.GridColor = SystemColors.Control;
-            dataGridView.Location = new Point(12, 288);
+            dataGridView.Location = new Point(15, 301);
+            dataGridView.Margin = new Padding(3, 4, 3, 4);
             dataGridView.Name = "dataGridView";
             dataGridView.ReadOnly = true;
-            dataGridView.Size = new Size(876, 300);
+            dataGridView.RowHeadersWidth = 51;
+            dataGridView.Size = new Size(955, 339);
             dataGridView.TabIndex = 2;
-            // 
-            // btnBack
-            // 
-            btnBack.BackColor = SystemColors.ActiveCaptionText;
-            btnBack.FlatAppearance.BorderSize = 0;
-            btnBack.FlatStyle = FlatStyle.Flat;
-            btnBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(788, 106);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(100, 33);
-            btnBack.TabIndex = 3;
-            btnBack.Text = "Выход";
-            btnBack.UseVisualStyleBackColor = false;
-            btnBack.Click += btnBack_Click;
             // 
             // DataStart
             // 
             DataStart.AutoSize = true;
             DataStart.Font = new Font("Microsoft Sans Serif", 14.25F);
-            DataStart.Location = new Point(13, 103);
+            DataStart.Location = new Point(10, 105);
             DataStart.Name = "DataStart";
-            DataStart.Size = new Size(125, 24);
+            DataStart.Size = new Size(162, 29);
             DataStart.TabIndex = 5;
             DataStart.Text = "Дата начала:";
             // 
@@ -151,41 +159,45 @@
             // 
             DataEnd.AutoSize = true;
             DataEnd.Font = new Font("Microsoft Sans Serif", 14.25F);
-            DataEnd.Location = new Point(13, 138);
+            DataEnd.Location = new Point(10, 142);
             DataEnd.Name = "DataEnd";
-            DataEnd.Size = new Size(116, 24);
+            DataEnd.Size = new Size(148, 29);
             DataEnd.TabIndex = 6;
             DataEnd.Text = "Дата конца:";
             // 
             // dateTimePickerStart
             // 
-            dateTimePickerStart.Location = new Point(139, 106);
+            dateTimePickerStart.Location = new Point(178, 107);
+            dateTimePickerStart.Margin = new Padding(3, 4, 3, 4);
             dateTimePickerStart.Name = "dateTimePickerStart";
-            dateTimePickerStart.Size = new Size(317, 23);
+            dateTimePickerStart.Size = new Size(362, 27);
             dateTimePickerStart.TabIndex = 7;
+            dateTimePickerStart.Value = new DateTime(2022, 1, 1);
             // 
             // dateTimePickerEnd
             // 
-            dateTimePickerEnd.Location = new Point(139, 139);
+            dateTimePickerEnd.Location = new Point(178, 144);
+            dateTimePickerEnd.Margin = new Padding(3, 4, 3, 4);
             dateTimePickerEnd.Name = "dateTimePickerEnd";
-            dateTimePickerEnd.Size = new Size(317, 23);
+            dateTimePickerEnd.Size = new Size(362, 27);
             dateTimePickerEnd.TabIndex = 8;
             // 
             // checkedListBox
             // 
             checkedListBox.FormattingEnabled = true;
-            checkedListBox.Location = new Point(139, 173);
+            checkedListBox.Location = new Point(178, 179);
+            checkedListBox.Margin = new Padding(3, 4, 3, 4);
             checkedListBox.Name = "checkedListBox";
-            checkedListBox.Size = new Size(317, 94);
+            checkedListBox.Size = new Size(362, 114);
             checkedListBox.TabIndex = 9;
             // 
             // selectedMaterial
             // 
             selectedMaterial.AutoSize = true;
             selectedMaterial.Font = new Font("Microsoft Sans Serif", 14.25F);
-            selectedMaterial.Location = new Point(13, 173);
+            selectedMaterial.Location = new Point(10, 179);
             selectedMaterial.Name = "selectedMaterial";
-            selectedMaterial.Size = new Size(117, 24);
+            selectedMaterial.Size = new Size(152, 29);
             selectedMaterial.TabIndex = 10;
             selectedMaterial.Text = "Материалы:";
             // 
@@ -196,9 +208,10 @@
             btnGenerateReport.FlatStyle = FlatStyle.Flat;
             btnGenerateReport.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnGenerateReport.ForeColor = Color.White;
-            btnGenerateReport.Location = new Point(676, 234);
+            btnGenerateReport.Location = new Point(727, 249);
+            btnGenerateReport.Margin = new Padding(3, 4, 3, 4);
             btnGenerateReport.Name = "btnGenerateReport";
-            btnGenerateReport.Size = new Size(212, 33);
+            btnGenerateReport.Size = new Size(242, 44);
             btnGenerateReport.TabIndex = 12;
             btnGenerateReport.Text = "Сформировать отчёт";
             btnGenerateReport.UseVisualStyleBackColor = false;
@@ -211,9 +224,10 @@
             btnExportExcel.FlatStyle = FlatStyle.Flat;
             btnExportExcel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnExportExcel.ForeColor = Color.White;
-            btnExportExcel.Location = new Point(676, 195);
+            btnExportExcel.Location = new Point(727, 197);
+            btnExportExcel.Margin = new Padding(3, 4, 3, 4);
             btnExportExcel.Name = "btnExportExcel";
-            btnExportExcel.Size = new Size(212, 33);
+            btnExportExcel.Size = new Size(242, 44);
             btnExportExcel.TabIndex = 13;
             btnExportExcel.Text = "Экспортировать Excel";
             btnExportExcel.UseVisualStyleBackColor = false;
@@ -222,10 +236,10 @@
             // 
             // Reports
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(900, 600);
+            ClientSize = new Size(982, 653);
             Controls.Add(btnExportExcel);
             Controls.Add(btnGenerateReport);
             Controls.Add(selectedMaterial);
@@ -234,10 +248,10 @@
             Controls.Add(dateTimePickerStart);
             Controls.Add(DataEnd);
             Controls.Add(DataStart);
-            Controls.Add(btnBack);
             Controls.Add(dataGridView);
             Controls.Add(panelHeader);
-            MinimumSize = new Size(916, 639);
+            Margin = new Padding(3, 4, 3, 4);
+            MinimumSize = new Size(1000, 700);
             Name = "Reports";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Составление отчёта";
@@ -253,8 +267,6 @@
         #endregion
 
         private Panel panelHeader;
-        private Label lblTitle;
-        private PictureBox picLogo;
         private DataGridView dataGridView;
         private Button btnBack;
         private Label DataStart;
@@ -264,8 +276,10 @@
         private CheckedListBox checkedListBox;
         private Label selectedMaterial;
         private Button btnGenerateReport;
-        private Label TitleReport;
         private Button btnExportExcel;
         private ComboBox comboBox;
+        private Label label1;
+        private Label lblTitle;
+        private PictureBox picLogo;
     }
 }
