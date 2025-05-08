@@ -30,16 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewData));
             panelHeader = new Panel();
+            btnBack = new PictureBox();
             picLogo = new PictureBox();
             comboBoxTables = new ComboBox();
             dataGridView = new DataGridView();
-            btnBack = new Button();
             menuStrip1 = new MenuStrip();
             EditTableToolStripMenuItem = new ToolStripMenuItem();
             AddElementToolStripMenuItem = new ToolStripMenuItem();
             ChangeItemToolStripMenuItem = new ToolStripMenuItem();
             RemoveElementToolStripMenuItem = new ToolStripMenuItem();
             panelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             menuStrip1.SuspendLayout();
@@ -55,16 +56,27 @@
             panelHeader.Location = new Point(0, 30);
             panelHeader.Margin = new Padding(3, 4, 3, 4);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(882, 84);
+            panelHeader.Size = new Size(882, 90);
             panelHeader.TabIndex = 0;
+            // 
+            // btnBack
+            // 
+            btnBack.Image = (Image)resources.GetObject("btnBack.Image");
+            btnBack.Location = new Point(10, 10);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(70, 70);
+            btnBack.SizeMode = PictureBoxSizeMode.Zoom;
+            btnBack.TabIndex = 6;
+            btnBack.TabStop = false;
+            btnBack.Click += btnBack_Click;
             // 
             // picLogo
             // 
             picLogo.Image = (Image)resources.GetObject("picLogo.Image");
-            picLogo.Location = new Point(710, 4);
+            picLogo.Location = new Point(800, 10);
             picLogo.Margin = new Padding(3, 4, 3, 4);
             picLogo.Name = "picLogo";
-            picLogo.Size = new Size(160, 75);
+            picLogo.Size = new Size(70, 70);
             picLogo.SizeMode = PictureBoxSizeMode.Zoom;
             picLogo.TabIndex = 0;
             picLogo.TabStop = false;
@@ -76,10 +88,10 @@
             comboBoxTables.Font = new Font("Segoe UI", 14F);
             comboBoxTables.FormattingEnabled = true;
             comboBoxTables.Items.AddRange(new object[] { "Университеты (universities)", "Студенты (students)", "Книги (books)", "Выдачи книг (loans)", "Утерянные книги (lost_books)" });
-            comboBoxTables.Location = new Point(55, 27);
+            comboBoxTables.Location = new Point(86, 27);
             comboBoxTables.Margin = new Padding(3, 4, 3, 4);
             comboBoxTables.Name = "comboBoxTables";
-            comboBoxTables.Size = new Size(649, 39);
+            comboBoxTables.Size = new Size(708, 39);
             comboBoxTables.TabIndex = 1;
             comboBoxTables.SelectedIndexChanged += comboBoxTables_SelectedIndexChanged;
             // 
@@ -92,29 +104,13 @@
             dataGridView.BorderStyle = BorderStyle.None;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.GridColor = SystemColors.Control;
-            dataGridView.Location = new Point(12, 122);
+            dataGridView.Location = new Point(10, 128);
             dataGridView.Margin = new Padding(3, 4, 3, 4);
             dataGridView.Name = "dataGridView";
             dataGridView.ReadOnly = true;
             dataGridView.RowHeadersWidth = 51;
-            dataGridView.Size = new Size(858, 418);
+            dataGridView.Size = new Size(858, 412);
             dataGridView.TabIndex = 2;
-            // 
-            // btnBack
-            // 
-            btnBack.BackColor = SystemColors.ActiveBorder;
-            btnBack.FlatAppearance.BorderSize = 0;
-            btnBack.FlatStyle = FlatStyle.Flat;
-            btnBack.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            btnBack.ForeColor = Color.Black;
-            btnBack.Location = new Point(3, 4);
-            btnBack.Margin = new Padding(3, 4, 3, 4);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(46, 75);
-            btnBack.TabIndex = 3;
-            btnBack.Text = "<";
-            btnBack.UseVisualStyleBackColor = false;
-            btnBack.Click += btnBack_Click;
             // 
             // menuStrip1
             // 
@@ -169,6 +165,7 @@
             Text = "Просмотр данных библиотеки";
             Load += ViewData_Load;
             panelHeader.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             menuStrip1.ResumeLayout(false);
@@ -183,11 +180,11 @@
         private PictureBox picLogo;
         private ComboBox comboBoxTables;
         private DataGridView dataGridView;
-        private Button btnBack;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem EditTableToolStripMenuItem;
         private ToolStripMenuItem AddElementToolStripMenuItem;
         private ToolStripMenuItem ChangeItemToolStripMenuItem;
         private ToolStripMenuItem RemoveElementToolStripMenuItem;
+        private PictureBox btnBack;
     }
 }
