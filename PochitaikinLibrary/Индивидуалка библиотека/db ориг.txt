@@ -1,0 +1,137 @@
+CREATE TABLE universities (
+    university_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+CREATE TABLE students (
+    student_id SERIAL PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    university_id INTEGER NOT NULL REFERENCES universities(university_id) ON DELETE CASCADE
+);
+CREATE TABLE books (
+    book_id SERIAL PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    cost NUMERIC(10, 2) NOT NULL CHECK (cost >= 0),
+    is_available BOOLEAN NOT NULL DEFAULT TRUE
+);
+CREATE TABLE loans (
+    loan_id SERIAL PRIMARY KEY,
+    student_id INTEGER NOT NULL REFERENCES students(student_id) ON DELETE CASCADE,
+    book_id INTEGER NOT NULL REFERENCES books(book_id),
+    issue_date DATE NOT NULL,
+    due_date DATE NOT NULL,
+    return_date DATE,
+    CHECK (return_date IS NULL OR return_date >= issue_date)
+);
+CREATE TABLE lost_books (
+    lost_id SERIAL PRIMARY KEY,
+    student_id INTEGER NOT NULL REFERENCES students(student_id) ON DELETE CASCADE,
+    book_id INTEGER NOT NULL REFERENCES books(book_id),
+    lost_date DATE NOT NULL,
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE FUNCTION mark_book_unavailable() 
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Пометить книгу как недоступную
+    UPDATE books SET is_available = FALSE WHERE book_id = NEW.book_id;
+    -- Опционно: зафиксировать стоимость книги в записи выдачи
+    NEW.book_cost := (SELECT cost FROM books WHERE book_id = NEW.book_id);
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+
+CREATE OR REPLACE FUNCTION mark_book_available() 
+RETURNS TRIGGER AS $$
+BEGIN
+    IF NEW.return_date IS NOT NULL THEN
+       UPDATE books SET is_available = TRUE WHERE book_id = NEW.book_id;
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER after_return_mark_avail
+AFTER UPDATE OF return_date ON loans
+FOR EACH ROW
+WHEN (NEW.return_date IS NOT NULL)
+EXECUTE FUNCTION mark_book_available();
+
+
+CREATE TRIGGER after_issue_mark_unavail
+AFTER INSERT ON loans
+FOR EACH ROW
+EXECUTE FUNCTION mark_book_unavailable();
+
+CREATE OR REPLACE FUNCTION handle_book_loss() 
+RETURNS TRIGGER AS $$
+DECLARE
+    cost_numeric NUMERIC;
+BEGIN
+    -- Пометить книгу недоступной навсегда (утеряна)
+    UPDATE books SET is_available = FALSE WHERE book_id = NEW.book_id;
+    -- Если штраф не указан, подставить стоимость книги как сумму штрафа
+    IF NEW.fine_amount IS NULL THEN
+       SELECT cost INTO cost_numeric FROM books WHERE book_id = NEW.book_id;
+       NEW.fine_amount := cost_numeric;
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER after_loss_mark_unavail
+AFTER INSERT ON lost_books
+FOR EACH ROW
+EXECUTE FUNCTION handle_book_loss();
+
+
+
+
+
+
+
+
+SELECT 
+    u.name AS "ВУЗ",
+    -- Количество выдач за период
+    COUNT(*) FILTER (
+         WHERE l.issue_date BETWEEN :start_date AND :end_date
+    ) AS "Выдано",
+    -- Количество случаев просрочки (выдано в период и не возвращено в срок)
+    COUNT(*) FILTER (
+         WHERE l.issue_date BETWEEN :start_date AND :end_date
+           AND (
+                (l.return_date IS NULL AND NOW() > l.due_date)
+             OR (l.return_date > l.due_date)
+           )
+    ) AS "Не возвращено в срок",
+    -- Количество утерянных в период
+    COUNT(*) FILTER (
+         WHERE lost.lost_date BETWEEN :start_date AND :end_date
+    ) AS "Утеряно"
+FROM universities u
+JOIN students s ON s.university_id = u.university_id
+LEFT JOIN loans l ON l.student_id = s.student_id
+LEFT JOIN lost_books lost ON lost.student_id = s.student_id
+GROUP BY u.name;

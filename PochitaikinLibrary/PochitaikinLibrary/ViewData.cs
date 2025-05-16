@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using PochitaikinLibrary.Forms;
 using System.Data;
 using System.Windows.Forms;
 
@@ -22,105 +23,389 @@ namespace PochitaikinLibrary
         {
             mainForm.Show();
         }
-
-        private void ViewData_Load(object sender, EventArgs e)
-        {
-            // Словарь с русскими названиями таблиц
-            Dictionary<string, string> tableNames = new Dictionary<string, string>
-            {
-                {"Университеты", "universities"},
-                {"Студенты", "students"},
-                {"Книги", "books"},
-                {"Выдачи книг", "loans"},
-                {"Утерянные книги", "lost_books"}
-            };
-
-            // Заполняем комбобокс русскими названиями таблиц
-            foreach (var table in tableNames)
-            {
-                comboBoxTables.Items.Add($"{table.Key} ({table.Value})");
-            }
-
-            // Предварительно загружаем первую таблицу
-            if (comboBoxTables.Items.Count > 0)
-            {
-                comboBoxTables.SelectedIndex = 0;
-            }
-        }
-
-        private void comboBoxTables_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxTables.SelectedItem == null) return;
-
-            string selectedItem = comboBoxTables.SelectedItem.ToString();
-            string tableName = selectedItem.Split('(', ')')[1].Trim();
-
-            try
-            {
-                LoadTableData(tableName);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка загрузки таблицы: {ex.Message}", "Ошибка",
-                              MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void LoadTableData(string tableName)
-        {
-            string query = $"SELECT * FROM \"{tableName}\"";
-
-            // Для сложных таблиц добавляем JOIN'ы
-            switch (tableName.ToLower())
-            {
-                case "students":
-                    query = @"SELECT s.student_id, s.full_name, u.name as university 
-                             FROM students s
-                             JOIN universities u ON s.university_id = u.university_id";
-                    break;
-
-                case "loans":
-                    query = @"SELECT l.loan_id, s.full_name as student, b.title as book, 
-                                    l.issue_date, l.due_date, l.return_date
-                             FROM loans l
-                             JOIN students s ON l.student_id = s.student_id
-                             JOIN books b ON l.book_id = b.book_id";
-                    break;
-
-                case "lost_books":
-                    query = @"SELECT lb.lost_id, s.full_name as student, b.title as book, 
-                                    lb.lost_date, b.cost
-                             FROM lost_books lb
-                             JOIN students s ON lb.student_id = s.student_id
-                             JOIN books b ON lb.book_id = b.book_id";
-                    break;
-            }
-
-            using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(query, connection))
-            {
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                dataGridView.DataSource = dataTable;
-                dataGridView.AutoResizeColumns();
-            }
-        }
-
+                
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
+        private void ViewData_Load(object sender, EventArgs e)
         {
-            if (dataGridView.DataSource == null)
+            Dictionary<string, string> tableNames = new Dictionary<string, string>
             {
-                MessageBox.Show("Нет данных для экспорта", "Информация",
-                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                {"Университеты", "Университеты"},
+                {"Студенты", "Студенты"},
+                {"Книги", "Книги"},
+                {"Выдачи книг", "Выдачи книг"},
+                {"Утерянные книги", "Утерянные книги"},
+                //{"Текущие выданные книги", "Текущие выданные книги"},
+                //{"Статистика по университетам", "Статистика по университетам"}
+            };
+
+            foreach (var kvp in tableNames)
+            {
+                comboBoxTables.Items.Add($"{kvp.Key} ({kvp.Value})");
+            }
+
+            if (comboBoxTables.Items.Count > 0)
+            {
+                comboBoxTables.SelectedIndex = 0;
+            }
+
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView.MultiSelect = false;
+        }
+
+        private void comboBoxTables_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedTable = comboBoxTables.SelectedItem.ToString();
+            int startIndex = selectedTable.IndexOf('(') + 1;
+            int endIndex = selectedTable.IndexOf(')', startIndex);
+            string viewName = selectedTable.Substring(startIndex, endIndex - startIndex);
+
+            try
+            {
+                RefreshDataGridView(viewName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки представления: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RefreshDataGridView(string viewName)
+        {
+            try
+            {
+                dataGridView.DataSource = null;
+
+                string query = $"SELECT * FROM \"{viewName}\"";
+                using (var adapter = new NpgsqlDataAdapter(query, connection))
+                {
+                    var dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    dataGridView.DataSource = dataTable;
+
+                    HideIdColumns(viewName);
+                }
+
+                dataGridView.Refresh();
+                Application.DoEvents();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка обновления: {ex.Message}");
+            }
+        }
+
+        private void HideIdColumns(string viewName)
+        {
+            var idColumns = new Dictionary<string, string>
+            {
+                {"Университеты", "ID университета"},
+                {"Студенты", "ID студента"},
+                {"Книги", "ID книги"},
+                {"Выдачи книг", "ID выдачи"},
+                {"Утерянные книги", "ID утери"}
+            };
+
+            if (idColumns.TryGetValue(viewName, out var columnName))
+            {
+                if (dataGridView.Columns.Contains(columnName))
+                {
+                    dataGridView.Columns[columnName].Visible = false;
+                }
+            }
+        }
+
+        // для Universities
+        private bool IsUniversitiesTableSelected()
+        {
+            if (comboBoxTables.SelectedItem == null) return false;
+            string selectedTable = comboBoxTables.SelectedItem.ToString();
+            return selectedTable.Contains("Университеты");
+        }
+
+        private void AddUniversity()
+        {
+            var addForm = new UniversityForm(connection);
+            if (addForm.ShowDialog() == DialogResult.OK)
+            {
+                RefreshDataGridView("Университеты");
+            }
+        }
+
+        private void EditUniversity()
+        {
+            if (dataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Выберите университет для редактирования", "Информация",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // TODO: Реализовать экспорт в Excel
-            MessageBox.Show("Экспорт в Excel будет реализован здесь");
+            DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
+            int universityId = Convert.ToInt32(selectedRow.Cells["ID университета"].Value);
+
+            var editForm = new UniversityForm(connection, true, universityId);
+            if (editForm.ShowDialog() == DialogResult.OK)
+            {
+                RefreshDataGridView("Университеты");
+            }
+        }
+
+        private void DeleteUniversity()
+        {
+            if (dataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Выберите университет для удаления", "Информация",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
+            int universityId = Convert.ToInt32(selectedRow.Cells["ID университета"].Value);
+            string universityName = selectedRow.Cells["Название университета"].Value.ToString();
+
+            if (MessageBox.Show($"Вы уверены, что хотите удалить университет \"{universityName}\"?",
+                "Подтверждение удаления",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    string query = "DELETE FROM universities WHERE university_id = @universityId";
+                    using (var cmd = new NpgsqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@universityId", universityId);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Университет успешно удален", "Успех",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshDataGridView("Университеты");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при удалении университета: {ex.Message}", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        // для Students
+        private bool IsStudentsTableSelected()
+        {
+            if (comboBoxTables.SelectedItem == null) return false;
+            string selectedTable = comboBoxTables.SelectedItem.ToString();
+            return selectedTable.Contains("Студенты");
+        }
+
+        private void AddStudent()
+        {
+            var addForm = new StudentForm(connection);
+            if (addForm.ShowDialog() == DialogResult.OK)
+            {
+                RefreshDataGridView("Студенты");
+            }
+        }
+
+        private void EditStudent()
+        {
+            if (dataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Выберите студента для редактирования", "Информация",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
+            int studentId = Convert.ToInt32(selectedRow.Cells["ID студента"].Value);
+
+            var editForm = new StudentForm(connection, true, studentId);
+            if (editForm.ShowDialog() == DialogResult.OK)
+            {
+                RefreshDataGridView("Студенты");
+            }
+        }
+
+        private void DeleteStudent()
+        {
+            if (dataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Выберите студента для удаления", "Информация",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
+            int studentId = Convert.ToInt32(selectedRow.Cells["ID студента"].Value);
+            string studentName = selectedRow.Cells["ФИО студента"].Value.ToString();
+
+            if (MessageBox.Show($"Вы уверены, что хотите удалить студента \"{studentName}\"?",
+                "Подтверждение удаления",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    string query = "DELETE FROM students WHERE student_id = @studentId";
+                    using (var cmd = new NpgsqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@studentId", studentId);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Студент успешно удален", "Успех",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshDataGridView("Студенты");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при удалении студента: {ex.Message}", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        // для Books
+        private bool IsBooksTableSelected()
+        {
+            if (comboBoxTables.SelectedItem == null) return false;
+            string selectedTable = comboBoxTables.SelectedItem.ToString();
+            return selectedTable.Contains("Книги");
+        }
+
+        private void AddBook()
+        {
+            var addForm = new BookForm(connection);
+            if (addForm.ShowDialog() == DialogResult.OK)
+            {
+                RefreshDataGridView("Книги");
+            }
+        }
+
+        private void EditBook()
+        {
+            if (dataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Выберите книгу для редактирования", "Информация",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
+            int bookId = Convert.ToInt32(selectedRow.Cells["ID книги"].Value);
+
+            var editForm = new BookForm(connection, true, bookId);
+            if (editForm.ShowDialog() == DialogResult.OK)
+            {
+                RefreshDataGridView("Книги");
+            }
+        }
+
+        private void DeleteBook()
+        {
+            if (dataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Выберите книгу для удаления", "Информация",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
+            int bookId = Convert.ToInt32(selectedRow.Cells["ID книги"].Value);
+            string bookTitle = selectedRow.Cells["Название книги"].Value.ToString();
+
+            if (MessageBox.Show($"Вы уверены, что хотите удалить книгу \"{bookTitle}\"?",
+                "Подтверждение удаления",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    string query = "DELETE FROM books WHERE book_id = @bookId";
+                    using (var cmd = new NpgsqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@bookId", bookId);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Книга успешно удалена", "Успех",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshDataGridView("Книги");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при удалении книги: {ex.Message}", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        // Обработчики StripMenu
+        private void AddElementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IsUniversitiesTableSelected())
+            {
+                AddUniversity();
+            }
+            else if (IsStudentsTableSelected())
+            {
+                AddStudent();
+            }
+            else if (IsBooksTableSelected())
+            {
+                AddBook();
+            }
+            else
+            {
+                MessageBox.Show("Функция добавления для этого представления не реализована", "Информация",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void ChangeElementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IsUniversitiesTableSelected())
+            {
+                EditUniversity();
+            }
+            else if (IsStudentsTableSelected())
+            {
+                EditStudent();
+            }
+            else if (IsBooksTableSelected())
+            {
+                EditBook();
+            }
+            else
+            {
+                MessageBox.Show("Функция редактирования для этого представления не реализована", "Информация",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void RemoveElementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IsUniversitiesTableSelected())
+            {
+                DeleteUniversity();
+            }
+            else if (IsStudentsTableSelected())
+            {
+                DeleteStudent();
+            }
+            else if (IsBooksTableSelected())
+            {
+                DeleteBook();
+            }
+            else
+            {
+                MessageBox.Show("Функция удаления для этого представления не реализована", "Информация",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

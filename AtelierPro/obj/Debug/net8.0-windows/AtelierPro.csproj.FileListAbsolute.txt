@@ -10,7 +10,6 @@ M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.csproj.As
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.csproj.ResolveComReference.cache
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.DataTables.resources
-M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Form1.resources
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Invoices.resources
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Menu.resources
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.Properties.Resources.resources
@@ -27,7 +26,6 @@ M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\refint\AtelierPro.dl
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.pdb
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.genruntimeconfig.cache
 M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\ref\AtelierPro.dll
-M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddInvoiceItemForm.resources
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\bin\Debug\net8.0-windows\AtelierPro.exe
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\bin\Debug\net8.0-windows\AtelierPro.deps.json
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\bin\Debug\net8.0-windows\AtelierPro.runtimeconfig.json
@@ -63,3 +61,10 @@ C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-wi
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddEditFormForTables.AddEditOrderForm.resources
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddEditFormForTables.AddEditMaterialForm.resources
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddEditFormForTables.AddEditMaterialUsageForm.resources
+M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddEditInvoiceForm.resources
+M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddEditInvoiceItemForm.resources
+M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddEditFormForTables.AddEditMaterialForm.resources
+M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddEditFormForTables.AddEditMaterialUsageForm.resources
+M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddEditFormForTables.AddEditOrderForm.resources
+M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddEditProductForm.resources
+M:\Git\C_Sharp_Postgres\AtelierPro\obj\Debug\net8.0-windows\AtelierPro.AddEditFormForTables.AddEditSupplierForm.resources

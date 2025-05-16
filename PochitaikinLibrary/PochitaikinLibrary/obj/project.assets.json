@@ -185,23 +185,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Marina\\.nuget\\packages\\": {},
+    "C:\\Users\\MM Shadrina\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\PochitaikinLibrary.csproj",
+      "projectUniqueName": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\PochitaikinLibrary.csproj",
       "projectName": "PochitaikinLibrary",
-      "projectPath": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\PochitaikinLibrary.csproj",
-      "packagesPath": "C:\\Users\\Marina\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\obj\\",
+      "projectPath": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\PochitaikinLibrary.csproj",
+      "packagesPath": "C:\\Users\\MM Shadrina\\.nuget\\packages\\",
+      "outputPath": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Marina\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MM Shadrina\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -210,6 +210,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

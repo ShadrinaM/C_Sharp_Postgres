@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="26.3.0">
+  <diagram name="Страница — 1" id="Juerf3pbSbR5jhN0PQl9">
+    <mxGraphModel dx="2031" dy="1946" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wmLPMuHZqKVixIBkxNHc-6" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" edge="1" parent="1" source="wmLPMuHZqKVixIBkxNHc-1" target="wmLPMuHZqKVixIBkxNHc-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wmLPMuHZqKVixIBkxNHc-1" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center;&quot;&gt;&lt;b&gt;&lt;u&gt;universities (Университеты)&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;university_id&lt;/b&gt; - уникальный идентификатор университета&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;name&lt;/b&gt; - название университета&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="560" y="-180" width="320" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="wmLPMuHZqKVixIBkxNHc-2" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center;&quot;&gt;&lt;b&gt;&lt;u&gt;books (Книги)&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;book_id&lt;/b&gt; - уникальный идентификатор книги&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;title&lt;/b&gt; - название книги&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;cost&lt;/b&gt; - стоимость книги (не может быть отрицательной)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;is_available&lt;/b&gt; - флаг доступности книги (доступна/не доступна)&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="140" y="110" width="320" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="wmLPMuHZqKVixIBkxNHc-3" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center;&quot;&gt;&lt;b&gt;&lt;u&gt;students (Студенты)&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;student_id&lt;/b&gt; - уникальный идентификатор студента&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;full_name&lt;/b&gt; - полное имя студента&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;university_id&lt;/b&gt; - идентификатор университета, к которому прикреплен студент (внешний ключ)&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="560" y="-50" width="320" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="wmLPMuHZqKVixIBkxNHc-4" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center;&quot;&gt;&lt;b&gt;&lt;u&gt;loans (Выдачи книг)&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;loan_id&lt;/b&gt; - уникальный идентификатор выдачи&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;student_id&lt;/b&gt; - идентификатор студента, которому выдана книга (внешний ключ)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;book_id&lt;/b&gt; - идентификатор выданной книги (внешний ключ)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;issue_date&lt;/b&gt; - дата выдачи книги&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;due_date&lt;/b&gt; - срок возврата книги&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;return_date&lt;/b&gt; - фактическая дата возврата книги (может быть NULL если книга не возвращена)&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="560" y="100" width="320" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="wmLPMuHZqKVixIBkxNHc-5" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center;&quot;&gt;&lt;b&gt;&lt;u&gt;lost_books (Утерянные книги)&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;lost_id&lt;/b&gt; - уникальный идентификатор записи об утере&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;student_id&lt;/b&gt; - идентификатор студента, потерявшего книгу (внешний ключ)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;book_id&lt;/b&gt; - идентификатор утерянной книги (внешний ключ)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;b&gt;lost_date&lt;/b&gt; - дата регистрации утери книги&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="140" y="-60" width="320" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="wmLPMuHZqKVixIBkxNHc-7" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" edge="1" parent="1" source="wmLPMuHZqKVixIBkxNHc-4" target="wmLPMuHZqKVixIBkxNHc-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="32" as="sourcePoint" />
+            <mxPoint x="570" y="23" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wmLPMuHZqKVixIBkxNHc-8" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="1" source="wmLPMuHZqKVixIBkxNHc-4" target="wmLPMuHZqKVixIBkxNHc-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="470" y="-88" as="sourcePoint" />
+            <mxPoint x="580" y="-97" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wmLPMuHZqKVixIBkxNHc-9" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" edge="1" parent="1" source="wmLPMuHZqKVixIBkxNHc-3" target="wmLPMuHZqKVixIBkxNHc-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540" y="170" as="sourcePoint" />
+            <mxPoint x="430" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wmLPMuHZqKVixIBkxNHc-10" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="1" source="wmLPMuHZqKVixIBkxNHc-2" target="wmLPMuHZqKVixIBkxNHc-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="62" as="sourcePoint" />
+            <mxPoint x="600" y="53" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
