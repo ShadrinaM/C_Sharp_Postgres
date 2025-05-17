@@ -270,10 +270,35 @@ namespace AtelierPro
                     DateTime startDate = dateTimePickerStart.Value.Date;
                     DateTime endDate = dateTimePickerEnd.Value.Date;
 
-                    // SQL-запрос для получения материалов по выбранным изделиям
+                    //// SQL-запрос для получения материалов по выбранным изделиям с изделиями
+                    //string query = @"
+                    //SELECT 
+                    //    p.product_name AS Изделие,
+                    //    m.material_name AS Материал,
+                    //    SUM(mfp.quantity) AS Количество,
+                    //    m.unit AS ""Единица измерения"",
+                    //    ROUND((SELECT AVG(ii.unit_price) 
+                    //            FROM IncomingItems ii 
+                    //            WHERE ii.material_id = m.material_id), 2) AS ""Средняя цена"",
+                    //    ROUND(SUM(mfp.quantity) * (SELECT AVG(ii.unit_price) 
+                    //                                FROM IncomingItems ii 
+                    //                                WHERE ii.material_id = m.material_id), 2) AS ""Общая стоимость""
+                    //FROM 
+                    //    Products p
+                    //    JOIN MaterialForProduct mfp ON p.product_id = mfp.product_id
+                    //    JOIN Material m ON mfp.material_id = m.material_id
+                    //    JOIN Orders o ON p.order_id = o.order_id
+                    //WHERE 
+                    //    p.product_name = ANY(@selectedProducts)
+                    //    AND o.order_date BETWEEN @startDate AND @endDate
+                    //GROUP BY 
+                    //    p.product_name, m.material_name, m.unit, m.material_id
+                    //ORDER BY 
+                    //    p.product_name, m.material_name";
+
+                    //// SQL-запрос для получения материалов по выбранным изделиямбез изделий
                     string query = @"
                     SELECT 
-                        p.product_name AS Изделие,
                         m.material_name AS Материал,
                         SUM(mfp.quantity) AS Количество,
                         m.unit AS ""Единица измерения"",
@@ -292,9 +317,9 @@ namespace AtelierPro
                         p.product_name = ANY(@selectedProducts)
                         AND o.order_date BETWEEN @startDate AND @endDate
                     GROUP BY 
-                        p.product_name, m.material_name, m.unit, m.material_id
+                        m.material_name, m.unit, m.material_id
                     ORDER BY 
-                        p.product_name, m.material_name";
+                        m.material_name";
 
                     // Заполнение запроса данными из формы
                     using (var cmd = new NpgsqlCommand(query, connection))

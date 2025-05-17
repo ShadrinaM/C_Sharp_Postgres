@@ -576,24 +576,81 @@ namespace AtelierPro
 
             try
             {
+                int? newInvoiceId = null;
+
                 if (invoiceType == "Приходная накладная")
                 {
                     AddEditInvoiceForm form = new AddEditInvoiceForm(connection, true);
-                    form.ShowDialog();                    
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        newInvoiceId = form.CreatedInvoiceId;
+                    }
                 }
                 else
                 {
                     AddEditInvoiceForm form = new AddEditInvoiceForm(connection, false);
-                    form.ShowDialog();                    
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        newInvoiceId = form.CreatedInvoiceId;
+                    }
                 }
 
+                // Обновляем список накладных
                 Fill_dataGridViewInvoices();
+
+                // Если есть ID новой накладной, находим и выделяем её
+                if (newInvoiceId.HasValue)
+                {
+                    string idColumnName = invoiceType == "Приходная накладная" ? "invoice_id" : "outgoing_id";
+
+                    foreach (DataGridViewRow row in dataGridViewInvoices.Rows)
+                    {
+                        if (Convert.ToInt32(row.Cells[idColumnName].Value) == newInvoiceId.Value)
+                        {
+                            row.Selected = true;
+                            dataGridViewInvoices.FirstDisplayedScrollingRowIndex = row.Index;
+                            // Обновляем список элементов для выбранной накладной
+                            Fill_dataGridViewInvoicesItems(dataGridViewInvoices,
+                                new DataGridViewCellEventArgs(0, row.Index));
+                            break;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при добавлении накладной: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка при добавлении накладной: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // старая версия которая указатель не перемещала на только что добавленную накладную
+        //private void AddInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    string invoiceType = comboBoxInvoices.SelectedItem.ToString();
+
+        //    try
+        //    {
+        //        if (invoiceType == "Приходная накладная")
+        //        {
+        //            AddEditInvoiceForm form = new AddEditInvoiceForm(connection, true);
+        //            form.ShowDialog();                    
+        //        }
+        //        else
+        //        {
+        //            AddEditInvoiceForm form = new AddEditInvoiceForm(connection, false);
+        //            form.ShowDialog();                    
+        //        }
+
+        //        Fill_dataGridViewInvoices();
+        //        // устанавливает после добавления новой накладной указатель в comboBoxInvoices на новую накладную (на верхнюю т.к. сортировка в таблице по дате)
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"Ошибка при добавлении накладной: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         /// <summary>
         /// Изменение накладной

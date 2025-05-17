@@ -1,12 +1,6 @@
 ﻿using Npgsql;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AtelierPro
@@ -17,6 +11,9 @@ namespace AtelierPro
         private readonly bool isIncoming;
         private readonly bool isEditMode;
         private readonly int? invoiceId;
+
+        // Свойство для возврата ID созданной накладной
+        public int? CreatedInvoiceId { get; private set; }
 
         public AddEditInvoiceForm(NpgsqlConnection conn, bool isIncoming, bool isEditMode = false, int? invoiceId = null)
         {
@@ -31,25 +28,44 @@ namespace AtelierPro
 
         private void AddEditInvoiceForm_Load(object sender, EventArgs e)
         {
-            if (isIncoming)
+            try
             {
-                LoadSuppliers();
-                labelClientOrSupplier.Text = "Поставщик:";
-            }
-            else
-            {
-                LoadOrders();
-                labelClientOrSupplier.Text = "Заказчик:";
-            }
+                if (isIncoming)
+                {
+                    LoadSuppliers();
+                    labelClientOrSupplier.Text = "Поставщик:";
+                    labelDeliveryDate.Visible = true;
+                    dateTimePickerDeliveryDate.Visible = true;
+                }
+                else
+                {
+                    LoadOrders();
+                    labelClientOrSupplier.Text = "Заказчик:";
+                    labelDeliveryDate.Visible = false;
+                    dateTimePickerDeliveryDate.Visible = false;
+                }
 
-            if (isEditMode && invoiceId.HasValue)
-            {
-                LoadInvoiceData();
-            }
+                if (isEditMode && invoiceId.HasValue)
+                {
+                    Text = isIncoming ? "Редактирование приходной накладной" : "Редактирование расходной накладной";
+                    LoadInvoiceData();
+                }
+                else
+                {
+                    Text = isIncoming ? "Добавление приходной накладной" : "Добавление расходной накладной";
+                    dateTimePickerInvoiceDate.Value = DateTime.Now;
+                    dateTimePickerDeliveryDate.Value = DateTime.Now;
+                }
 
-            textBoxInvoiceNumber.Focus();
+                textBoxInvoiceNumber.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при загрузке данных: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
         }
-
 
         private void LoadSuppliers()
         {
@@ -94,19 +110,17 @@ namespace AtelierPro
                     {
                         textBoxInvoiceNumber.Text = reader.GetString(0);
                         dateTimePickerInvoiceDate.Value = reader.GetDateTime(1);
+
                         if (isIncoming)
                         {
-                            dateTimePickerDeliveryDate.Value = reader.GetDateTime(2);
+                            dateTimePickerDeliveryDate.Value = reader.IsDBNull(2) ? DateTime.Now : reader.GetDateTime(2);
                             comboBoxClientOrSupplier.SelectedValue = reader.GetInt32(3);
-                            textBoxNotes.Text = reader.GetString(4);
+                            textBoxNotes.Text = reader.IsDBNull(4) ? "" : reader.GetString(4);
                         }
                         else
                         {
+                            textBoxNotes.Text = reader.IsDBNull(2) ? "" : reader.GetString(2);
                             comboBoxClientOrSupplier.SelectedValue = reader.GetInt32(3);
-                            textBoxNotes.Text = reader.GetString(2);
-                            dateTimePickerDeliveryDate.Enabled = false;
-                            dateTimePickerDeliveryDate.Visible = false;
-                            labelDeliveryDate.Visible = false;
                         }
                     }
                 }
@@ -115,20 +129,15 @@ namespace AtelierPro
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string invoiceNumber = textBoxInvoiceNumber.Text.Trim();
-            DateTime invoiceDate = dateTimePickerInvoiceDate.Value;
-            string notes = textBoxNotes.Text.Trim();
-            int selectedId = (int)comboBoxClientOrSupplier.SelectedValue;
-
-            if (string.IsNullOrWhiteSpace(invoiceNumber))
-            {
-                MessageBox.Show("Введите номер накладной.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (!ValidateInput())
                 return;
-            }
 
             try
             {
-                int newInvoiceId = -1;
+                string invoiceNumber = textBoxInvoiceNumber.Text.Trim();
+                DateTime invoiceDate = dateTimePickerInvoiceDate.Value;
+                string notes = textBoxNotes.Text.Trim();
+                int selectedId = (int)comboBoxClientOrSupplier.SelectedValue;
 
                 if (isEditMode)
                 {
@@ -136,12 +145,16 @@ namespace AtelierPro
                 }
                 else
                 {
-                    newInvoiceId = InsertInvoice(invoiceNumber, invoiceDate, notes, selectedId);
+                    CreatedInvoiceId = InsertInvoice(invoiceNumber, invoiceDate, notes, selectedId);
 
-                    // Показываем форму добавления элемента
-                    using (var itemForm = new AddEditInvoiceItemForm(connection, newInvoiceId, isIncoming))
+                    // Предложение добавить элементы накладной
+                    if (MessageBox.Show("Накладная успешно создана. Хотите добавить элементы накладной?",
+                        "Добавление элементов", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        itemForm.ShowDialog(this);
+                        using (var itemForm = new AddEditInvoiceItemForm(connection, CreatedInvoiceId.Value, isIncoming))
+                        {
+                            itemForm.ShowDialog(this);
+                        }
                     }
                 }
 
@@ -155,28 +168,42 @@ namespace AtelierPro
             }
         }
 
+        private bool ValidateInput()
+        {
+            if (string.IsNullOrWhiteSpace(textBoxInvoiceNumber.Text))
+            {
+                MessageBox.Show("Введите номер накладной.", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxInvoiceNumber.Focus();
+                return false;
+            }
+
+            if (comboBoxClientOrSupplier.SelectedValue == null)
+            {
+                MessageBox.Show(isIncoming ? "Выберите поставщика." : "Выберите заказчика.", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBoxClientOrSupplier.Focus();
+                return false;
+            }
+
+            return true;
+        }
 
         private int InsertInvoice(string number, DateTime date, string notes, int entityId)
         {
-            string query;
-            if (isIncoming)
-            {
-                query = @"INSERT INTO IncomingInvoices (invoice_number, invoice_date, delivery_date, supplier_id, notes)
-                  VALUES (@num, @date, @delivery, @supplier, @notes)
-                  RETURNING invoice_id";
-            }
-            else
-            {
-                query = @"INSERT INTO OutgoingInvoices (invoice_number, invoice_date, order_id, notes)
-                  VALUES (@num, @date, @order, @notes)
-                  RETURNING outgoing_id";
-            }
+            string query = isIncoming
+                ? @"INSERT INTO IncomingInvoices (invoice_number, invoice_date, delivery_date, supplier_id, notes)
+                     VALUES (@num, @date, @delivery, @supplier, @notes)
+                     RETURNING invoice_id"
+                : @"INSERT INTO OutgoingInvoices (invoice_number, invoice_date, order_id, notes)
+                     VALUES (@num, @date, @order, @notes)
+                     RETURNING outgoing_id";
 
             using (var cmd = new NpgsqlCommand(query, connection))
             {
                 cmd.Parameters.AddWithValue("@num", number);
                 cmd.Parameters.AddWithValue("@date", date);
-                cmd.Parameters.AddWithValue("@notes", notes);
+                cmd.Parameters.AddWithValue("@notes", string.IsNullOrWhiteSpace(notes) ? DBNull.Value : (object)notes);
 
                 if (isIncoming)
                 {
@@ -192,28 +219,23 @@ namespace AtelierPro
             }
         }
 
-
         private void UpdateInvoice(string number, DateTime date, string notes, int entityId)
         {
-            string query;
-            if (isIncoming)
-            {
-                query = @"UPDATE IncomingInvoices 
-                          SET invoice_number = @num, invoice_date = @date, delivery_date = @delivery, supplier_id = @supplier, notes = @notes
-                          WHERE invoice_id = @id";
-            }
-            else
-            {
-                query = @"UPDATE OutgoingInvoices 
-                          SET invoice_number = @num, invoice_date = @date, order_id = @order, notes = @notes
-                          WHERE outgoing_id = @id";
-            }
+            string query = isIncoming
+                ? @"UPDATE IncomingInvoices 
+                   SET invoice_number = @num, invoice_date = @date, 
+                       delivery_date = @delivery, supplier_id = @supplier, notes = @notes
+                   WHERE invoice_id = @id"
+                : @"UPDATE OutgoingInvoices 
+                   SET invoice_number = @num, invoice_date = @date, 
+                       order_id = @order, notes = @notes
+                   WHERE outgoing_id = @id";
 
             using (var cmd = new NpgsqlCommand(query, connection))
             {
                 cmd.Parameters.AddWithValue("@num", number);
                 cmd.Parameters.AddWithValue("@date", date);
-                cmd.Parameters.AddWithValue("@notes", notes);
+                cmd.Parameters.AddWithValue("@notes", string.IsNullOrWhiteSpace(notes) ? DBNull.Value : (object)notes);
                 cmd.Parameters.AddWithValue("@id", invoiceId.Value);
 
                 if (isIncoming)
