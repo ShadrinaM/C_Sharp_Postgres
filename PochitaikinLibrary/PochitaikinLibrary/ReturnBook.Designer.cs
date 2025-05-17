@@ -34,9 +34,9 @@
             panelHeader = new Panel();
             menuStrip1 = new MenuStrip();
             EditTableToolStripMenuItem = new ToolStripMenuItem();
-            AddElementToolStripMenuItem = new ToolStripMenuItem();
-            ChangeItemToolStripMenuItem = new ToolStripMenuItem();
-            RemoveElementToolStripMenuItem = new ToolStripMenuItem();
+            ReturnStripMenuItem = new ToolStripMenuItem();
+            LostStripMenuItem = new ToolStripMenuItem();
+            RemoveStripMenuItem = new ToolStripMenuItem();
             label2 = new Label();
             comboBoxStudents = new ComboBox();
             label6 = new Label();
@@ -53,10 +53,9 @@
             // btnBack
             // 
             btnBack.Image = (Image)resources.GetObject("btnBack.Image");
-            btnBack.Location = new Point(9, 11);
-            btnBack.Margin = new Padding(3, 2, 3, 2);
+            btnBack.Location = new Point(10, 15);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(61, 52);
+            btnBack.Size = new Size(70, 69);
             btnBack.SizeMode = PictureBoxSizeMode.Zoom;
             btnBack.TabIndex = 16;
             btnBack.TabStop = false;
@@ -67,9 +66,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 29F, FontStyle.Bold);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(76, 11);
+            label1.Location = new Point(87, 15);
             label1.Name = "label1";
-            label1.Size = new Size(297, 52);
+            label1.Size = new Size(372, 66);
             label1.TabIndex = 15;
             label1.Text = "Возврат книги";
             // 
@@ -80,9 +79,10 @@
             panelHeader.Controls.Add(label1);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
+            panelHeader.Margin = new Padding(3, 4, 3, 4);
             panelHeader.Name = "panelHeader";
-            panelHeader.Padding = new Padding(9, 8, 9, 8);
-            panelHeader.Size = new Size(920, 73);
+            panelHeader.Padding = new Padding(10, 11, 10, 11);
+            panelHeader.Size = new Size(1051, 97);
             panelHeader.TabIndex = 1;
             // 
             // menuStrip1
@@ -91,54 +91,59 @@
             menuStrip1.ForeColor = Color.White;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { EditTableToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 73);
+            menuStrip1.Location = new Point(0, 97);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(920, 24);
+            menuStrip1.Padding = new Padding(7, 3, 0, 3);
+            menuStrip1.Size = new Size(1051, 30);
             menuStrip1.TabIndex = 6;
             menuStrip1.Text = "menuStrip1";
             // 
             // EditTableToolStripMenuItem
             // 
-            EditTableToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { AddElementToolStripMenuItem, ChangeItemToolStripMenuItem, RemoveElementToolStripMenuItem });
+            EditTableToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ReturnStripMenuItem, LostStripMenuItem, RemoveStripMenuItem });
             EditTableToolStripMenuItem.ForeColor = Color.Black;
             EditTableToolStripMenuItem.Name = "EditTableToolStripMenuItem";
-            EditTableToolStripMenuItem.Size = new Size(177, 20);
+            EditTableToolStripMenuItem.Size = new Size(225, 24);
             EditTableToolStripMenuItem.Text = "Установить новое состояние";
             // 
-            // AddElementToolStripMenuItem
+            // ReturnStripMenuItem
             // 
-            AddElementToolStripMenuItem.Name = "AddElementToolStripMenuItem";
-            AddElementToolStripMenuItem.Size = new Size(142, 22);
-            AddElementToolStripMenuItem.Text = "Вовзращена";
+            ReturnStripMenuItem.Name = "ReturnStripMenuItem";
+            ReturnStripMenuItem.Size = new Size(224, 26);
+            ReturnStripMenuItem.Text = "Вовзращена";
+            ReturnStripMenuItem.Click += ReturnStripMenuItem_Click;
             // 
-            // ChangeItemToolStripMenuItem
+            // LostStripMenuItem
             // 
-            ChangeItemToolStripMenuItem.Name = "ChangeItemToolStripMenuItem";
-            ChangeItemToolStripMenuItem.Size = new Size(142, 22);
-            ChangeItemToolStripMenuItem.Text = "Утеряна";
+            LostStripMenuItem.Name = "LostStripMenuItem";
+            LostStripMenuItem.Size = new Size(224, 26);
+            LostStripMenuItem.Text = "Утеряна";
+            LostStripMenuItem.Click += LostStripMenuItem_Click;
             // 
-            // RemoveElementToolStripMenuItem
+            // RemoveStripMenuItem
             // 
-            RemoveElementToolStripMenuItem.Name = "RemoveElementToolStripMenuItem";
-            RemoveElementToolStripMenuItem.Size = new Size(142, 22);
-            RemoveElementToolStripMenuItem.Text = "Удалить";
+            RemoveStripMenuItem.Name = "RemoveStripMenuItem";
+            RemoveStripMenuItem.Size = new Size(224, 26);
+            RemoveStripMenuItem.Text = "Удалить";
+            RemoveStripMenuItem.Click += RemoveStripMenuItem_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 14.25F);
-            label2.Location = new Point(15, 147);
+            label2.Location = new Point(17, 196);
             label2.Name = "label2";
-            label2.Size = new Size(91, 24);
+            label2.Size = new Size(114, 29);
             label2.TabIndex = 10;
             label2.Text = "Студент:";
             // 
             // comboBoxStudents
             // 
             comboBoxStudents.FormattingEnabled = true;
-            comboBoxStudents.Location = new Point(120, 147);
+            comboBoxStudents.Location = new Point(137, 196);
+            comboBoxStudents.Margin = new Padding(3, 4, 3, 4);
             comboBoxStudents.Name = "comboBoxStudents";
-            comboBoxStudents.Size = new Size(300, 23);
+            comboBoxStudents.Size = new Size(342, 28);
             comboBoxStudents.TabIndex = 9;
             comboBoxStudents.SelectedIndexChanged += comboBoxStudents_SelectedIndexChanged;
             // 
@@ -146,18 +151,19 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 14.25F);
-            label6.Location = new Point(15, 114);
+            label6.Location = new Point(17, 152);
             label6.Name = "label6";
-            label6.Size = new Size(52, 24);
+            label6.Size = new Size(67, 29);
             label6.TabIndex = 8;
             label6.Text = "ВУЗ:";
             // 
             // comboBoxUniversities
             // 
             comboBoxUniversities.FormattingEnabled = true;
-            comboBoxUniversities.Location = new Point(120, 114);
+            comboBoxUniversities.Location = new Point(137, 152);
+            comboBoxUniversities.Margin = new Padding(3, 4, 3, 4);
             comboBoxUniversities.Name = "comboBoxUniversities";
-            comboBoxUniversities.Size = new Size(300, 23);
+            comboBoxUniversities.Size = new Size(342, 28);
             comboBoxUniversities.TabIndex = 7;
             comboBoxUniversities.SelectedIndexChanged += comboBoxUniversities_SelectedIndexChanged;
             // 
@@ -170,12 +176,14 @@
             dataGridViewBook.BorderStyle = BorderStyle.None;
             dataGridViewBook.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewBook.GridColor = SystemColors.Control;
-            dataGridViewBook.Location = new Point(15, 187);
+            dataGridViewBook.Location = new Point(17, 249);
+            dataGridViewBook.Margin = new Padding(3, 4, 3, 4);
             dataGridViewBook.Name = "dataGridViewBook";
             dataGridViewBook.ReadOnly = true;
             dataGridViewBook.RowHeadersWidth = 51;
-            dataGridViewBook.Size = new Size(893, 144);
+            dataGridViewBook.Size = new Size(1021, 192);
             dataGridViewBook.TabIndex = 11;
+            dataGridViewBook.SelectionChanged += dataGridViewBook_SelectionChanged;
             // 
             // dataGridViewBookInfo
             // 
@@ -186,18 +194,19 @@
             dataGridViewBookInfo.BorderStyle = BorderStyle.None;
             dataGridViewBookInfo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewBookInfo.GridColor = SystemColors.Control;
-            dataGridViewBookInfo.Location = new Point(15, 349);
+            dataGridViewBookInfo.Location = new Point(17, 465);
+            dataGridViewBookInfo.Margin = new Padding(3, 4, 3, 4);
             dataGridViewBookInfo.Name = "dataGridViewBookInfo";
             dataGridViewBookInfo.ReadOnly = true;
             dataGridViewBookInfo.RowHeadersWidth = 51;
-            dataGridViewBookInfo.Size = new Size(893, 198);
+            dataGridViewBookInfo.Size = new Size(1021, 264);
             dataGridViewBookInfo.TabIndex = 12;
             // 
             // ReturnBook
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(920, 559);
+            ClientSize = new Size(1051, 745);
             Controls.Add(dataGridViewBookInfo);
             Controls.Add(dataGridViewBook);
             Controls.Add(label2);
@@ -206,6 +215,7 @@
             Controls.Add(comboBoxUniversities);
             Controls.Add(menuStrip1);
             Controls.Add(panelHeader);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ReturnBook";
             Text = "ReturnBook";
             Load += ReturnBook_Load;
@@ -227,9 +237,9 @@
         private Panel panelHeader;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem EditTableToolStripMenuItem;
-        private ToolStripMenuItem AddElementToolStripMenuItem;
-        private ToolStripMenuItem ChangeItemToolStripMenuItem;
-        private ToolStripMenuItem RemoveElementToolStripMenuItem;
+        private ToolStripMenuItem ReturnStripMenuItem;
+        private ToolStripMenuItem LostStripMenuItem;
+        private ToolStripMenuItem RemoveStripMenuItem;
         private Label label2;
         private ComboBox comboBoxStudents;
         private Label label6;

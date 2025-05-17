@@ -55,3 +55,12 @@ M:\Git\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-w
 M:\Git\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.BooksStatusReport.resources
 M:\Git\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.IssueBook.resources
 M:\Git\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.ReturnBook.resources
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.csproj.ResolveComReference.cache
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.BooksStatusReport.resources
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.DebtorsReport.resources
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.Forms.BookForm.resources
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.Forms.StudentForm.resources
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.Forms.UniversityForm.resources
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.IssueBook.resources
+C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.ReturnBook.resources
