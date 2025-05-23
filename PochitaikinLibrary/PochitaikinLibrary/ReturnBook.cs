@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using Microsoft.Office.Interop.Excel;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,16 +26,19 @@ namespace PochitaikinLibrary
             connection = conn;
         }
 
+        // Закрытие окна по крестику
         private void WinForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            mainForm.Show();
+            mainForm.Show(); // Показывает прошлую открытую форму
         }
 
+        // Закрытие формы по кнопке Назад в меню
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Преднасройка формы
         private void ReturnBook_Load(object sender, EventArgs e)
         {
             // Загрузка данных при открытии формы
@@ -46,7 +50,7 @@ namespace PochitaikinLibrary
             dataGridViewBookInfo.MultiSelect = false;
         }
 
-        // Загрузка списка университетов
+        // Загрузка списка университетов в comboBoxUniversities
         private void LoadUniversities()
         {
             try
@@ -76,7 +80,7 @@ namespace PochitaikinLibrary
             }
         }
 
-        // Обработчик изменения выбранного университета
+        // Обработчик изменения выбранного университета в comboBoxUniversities
         private void comboBoxUniversities_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxUniversities.SelectedItem is KeyValuePair<int, string> selectedUniv)
@@ -85,7 +89,7 @@ namespace PochitaikinLibrary
             }
         }
 
-        // Загрузка студентов выбранного университета
+        // Загрузка студентов выбранного университета в comboBoxStudents
         private void LoadStudents(int universityId)
         {
             try
@@ -116,7 +120,7 @@ namespace PochitaikinLibrary
             }
         }
 
-        // Обработчик изменения выбранного студента
+        // Обработчик изменения выбранного студента в comboBoxStudents
         private void comboBoxStudents_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxStudents.SelectedItem is KeyValuePair<int, string> selectedStudent)
@@ -125,22 +129,27 @@ namespace PochitaikinLibrary
             }
         }
 
-        // Загрузка книг выбранного студента
+        // Загрузка всех книг которые когда либо выдавались студенту в dataGridViewBook
         private void LoadStudentBooks(int studentId)
         {
             try
             {
-                //string query = @"SELECT b.book_id, b.title, l.issue_date, l.due_date 
-                //                FROM loans l
-                //                JOIN books b ON l.book_id = b.book_id
-                //                WHERE l.student_id = @studentId AND l.return_date IS NULL
-                //                ORDER BY l.due_date";
-
-                string query = @"SELECT b.book_id, b.title, l.issue_date, l.due_date 
-                                FROM loans l
-                                JOIN books b ON l.book_id = b.book_id
-                                WHERE l.student_id = @studentId
-                                ORDER BY l.due_date";
+                string query = @"SELECT 
+                            b.book_id, 
+                            b.title, 
+                            l.issue_date, 
+                            l.due_date,
+                            CASE
+                                WHEN lb.lost_id IS NOT NULL THEN 'Утеряна'
+                                WHEN l.return_date IS NOT NULL THEN 'Возвращена'
+                                WHEN l.due_date < CURRENT_DATE THEN 'Просрочена'
+                                ELSE 'На руках'
+                            END AS status
+                        FROM loans l
+                        JOIN books b ON l.book_id = b.book_id
+                        LEFT JOIN lost_books lb ON l.book_id = lb.book_id AND l.student_id = lb.student_id
+                        WHERE l.student_id = @studentId
+                        ORDER BY l.due_date";
 
                 using (var cmd = new NpgsqlCommand(query, connection))
                 {
@@ -148,17 +157,17 @@ namespace PochitaikinLibrary
 
                     using (var adapter = new NpgsqlDataAdapter(cmd))
                     {
-                        DataTable dt = new DataTable();
+                        System.Data.DataTable dt = new System.Data.DataTable();
                         adapter.Fill(dt);
                         dataGridViewBook.DataSource = dt;
 
                         // Настройка заголовков столбцов
                         if (dataGridViewBook.Columns.Count > 0)
                         {
-                            //dataGridViewBook.Columns["book_id"].HeaderText = "ID книги";
                             dataGridViewBook.Columns["title"].HeaderText = "Название";
                             dataGridViewBook.Columns["issue_date"].HeaderText = "Дата выдачи";
                             dataGridViewBook.Columns["due_date"].HeaderText = "Срок возврата";
+                            dataGridViewBook.Columns["status"].HeaderText = "Статус";
                         }
                     }
                 }
@@ -169,7 +178,7 @@ namespace PochitaikinLibrary
             }
         }
 
-        // Обработчик изменения выбора в grid с выданными книгами
+        // Обработчик изменения выборанной книги в dataGridViewBook
         private void dataGridViewBook_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridViewBook.SelectedRows.Count == 0)
@@ -186,7 +195,7 @@ namespace PochitaikinLibrary
             }
         }
 
-        // Метод, который загружает полную информацию по книге и показывает в dataGridViewBookInfo
+        // Загрузка информации о выбранной в dataGridViewBook книге в dataGridViewBookInfo
         private void LoadBookInfo(int bookId)
         {
             try
@@ -206,7 +215,7 @@ namespace PochitaikinLibrary
 
                     using (var adapter = new NpgsqlDataAdapter(cmd))
                     {
-                        var dtInfo = new DataTable();
+                        var dtInfo = new System.Data.DataTable();
                         adapter.Fill(dtInfo);
                         dataGridViewBookInfo.DataSource = dtInfo;
 
@@ -226,54 +235,7 @@ namespace PochitaikinLibrary
             }
         }
 
-        //private void LostStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    // реализуй в этой функции по выбраной в dataGridViewBook книге добавление книги в lost_books 
-        //    /* 
-        //        CREATE TABLE lost_books (
-        //        lost_id SERIAL PRIMARY KEY,
-        //        student_id INTEGER NOT NULL REFERENCES students(student_id) ON DELETE CASCADE,
-        //        book_id INTEGER NOT NULL REFERENCES books(book_id),
-        //        lost_date DATE NOT NULL
-        //        ); 
-        //    */
-        //}
-
-        //private void ReturnStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    /* реализуй в этой функции по выбраной в dataGridViewBook книге добавление return_date 
-
-        //    CREATE TABLE loans (
-        //    loan_id SERIAL PRIMARY KEY,
-        //    student_id INTEGER NOT NULL REFERENCES students(student_id) ON DELETE CASCADE,
-        //    book_id INTEGER NOT NULL REFERENCES books(book_id),
-        //    issue_date DATE NOT NULL,
-        //    due_date DATE NOT NULL,
-        //    return_date DATE,
-        //    CHECK (return_date IS NULL OR return_date >= issue_date)
-        //    );
-
-        //    */
-        //}
-
-        //private void RemoveStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    /* реализуй в этой функции по выбраной в dataGridViewBook книге удаление соответсвующей записи из loans
-
-        //    CREATE TABLE loans (
-        //    loan_id SERIAL PRIMARY KEY,
-        //    student_id INTEGER NOT NULL REFERENCES students(student_id) ON DELETE CASCADE,
-        //    book_id INTEGER NOT NULL REFERENCES books(book_id),
-        //    issue_date DATE NOT NULL,
-        //    due_date DATE NOT NULL,
-        //    return_date DATE,
-        //    CHECK (return_date IS NULL OR return_date >= issue_date)
-        //    );
-
-        //    */
-        //}
-
-
+        // Пометить выбранную книгу утеряной (дважды утеряной назначить запрещает) по нажатию кнопки в menuStrip1
         private void LostStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dataGridViewBook.SelectedRows.Count == 0)
@@ -290,18 +252,43 @@ namespace PochitaikinLibrary
                 return;
             }
 
+            // Проверяем статус книги
+            string status = row.Cells["status"].Value?.ToString() ?? "";
+            if (status == "Утеряна")
+            {
+                MessageBox.Show("Эта книга уже отмечена как утерянная и не может быть помечена повторно");
+                return;
+            }
+
             try
             {
+                // Проверяем, не числится ли книга уже как утерянная
+                string checkLostQuery = @"SELECT COUNT(*) FROM lost_books 
+                            WHERE student_id = @studentId AND book_id = @bookId";
+
+                using (var checkCmd = new NpgsqlCommand(checkLostQuery, connection))
+                {
+                    checkCmd.Parameters.AddWithValue("@studentId", selectedStudent.Key);
+                    checkCmd.Parameters.AddWithValue("@bookId", bookId);
+
+                    long lostCount = (long)checkCmd.ExecuteScalar();
+                    if (lostCount > 0)
+                    {
+                        MessageBox.Show("Эта книга уже отмечена как утерянная и не может быть помечена повторно");
+                        return;
+                    }
+                }
+
                 // Добавляем запись в таблицу lost_books
                 string insertQuery = @"INSERT INTO lost_books (student_id, book_id, lost_date) 
-                             VALUES (@studentId, @bookId, CURRENT_DATE)";
+                         VALUES (@studentId, @bookId, CURRENT_DATE)";
 
                 // Обновляем статус книги как недоступной
                 string updateQuery = @"UPDATE books SET is_available = false WHERE book_id = @bookId";
 
                 // Удаляем запись из loans (или можно добавить return_date - зависит от логики)
                 string deleteLoanQuery = @"DELETE FROM loans 
-                                 WHERE student_id = @studentId AND book_id = @bookId AND return_date IS NULL";
+                         WHERE student_id = @studentId AND book_id = @bookId AND return_date IS NULL";
 
                 using (var transaction = connection.BeginTransaction())
                 {
@@ -350,6 +337,7 @@ namespace PochitaikinLibrary
             }
         }
 
+        // Вернуть книгу по нажатию кнопки в menuStrip1
         private void ReturnStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dataGridViewBook.SelectedRows.Count == 0)
@@ -415,11 +403,13 @@ namespace PochitaikinLibrary
             }
         }
 
+        // Удаление книги по нажатию кнопки в menuStrip1
         private void RemoveStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dataGridViewBook.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Пожалуйста, выберите книгу для удаления записи");
+                MessageBox.Show("Пожалуйста, выберите книгу для удаления записи",
+                                "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -427,14 +417,33 @@ namespace PochitaikinLibrary
             if (!(row.Cells["book_id"].Value is int bookId) ||
                 !(comboBoxStudents.SelectedItem is KeyValuePair<int, string> selectedStudent))
             {
-                MessageBox.Show("Ошибка при получении данных о книге или студенте");
+                MessageBox.Show("Ошибка при получении данных о книге или студенте",
+                                "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+
+            // Получаем название книги для сообщения
+            string bookTitle = row.Cells["title"].Value?.ToString() ?? "выбранную книгу";
+            string studentName = selectedStudent.Value;
+
+            // Запрос подтверждения
+            var result = MessageBox.Show(
+                $"Вы уверены, что хотите удалить запись о выдаче книги '{bookTitle}' студенту {studentName}?\n\n" +
+                "Это действие нельзя отменить!",
+                "Подтверждение удаления",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2);
+
+            if (result != DialogResult.Yes)
+            {
+                return; // Пользователь отказался от удаления
             }
 
             try
             {
                 string deleteQuery = @"DELETE FROM loans 
-                             WHERE student_id = @studentId AND book_id = @bookId AND return_date IS NULL";
+                     WHERE student_id = @studentId AND book_id = @bookId";
 
                 using (var cmd = new NpgsqlCommand(deleteQuery, connection))
                 {
@@ -444,20 +453,43 @@ namespace PochitaikinLibrary
 
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Запись о выдаче книги успешно удалена");
+                        MessageBox.Show($"Запись о выдаче книги '{bookTitle}' успешно удалена",
+                                      "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadStudentBooks(selectedStudent.Key);
                         LoadBookInfo(bookId);
                     }
                     else
                     {
-                        MessageBox.Show("Не найдено записей для удаления");
+                        MessageBox.Show("Не найдено записей для удаления. Возможно, запись уже была удалена.",
+                                      "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при удалении записи о выдаче книги: {ex.Message}");
+                MessageBox.Show($"Ошибка при удалении записи о выдаче книги: {ex.Message}",
+                               "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // Выдача книги по нажатию кнопки в menuStrip1
+        private void IssueABbookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Проверяем, что студент выбран
+            if (comboBoxStudents.SelectedItem == null)
+            {
+                MessageBox.Show("Пожалуйста, выберите студента");
+                return;
+            }
+
+            // Получаем ID выбранного студента
+            var selectedStudent = (KeyValuePair<int, string>)comboBoxStudents.SelectedItem;
+            int studentId = selectedStudent.Key;
+
+            // Создаем и показываем форму выдачи книги, передавая ID студента
+            IssueBookForm IssueBookForma = new IssueBookForm(connection, this, studentId);
+            IssueBookForma.Show();
+            this.Hide();
         }
     }
 }

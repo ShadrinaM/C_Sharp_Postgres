@@ -37,6 +37,7 @@
             ReturnStripMenuItem = new ToolStripMenuItem();
             LostStripMenuItem = new ToolStripMenuItem();
             RemoveStripMenuItem = new ToolStripMenuItem();
+            выдатьКнигуToolStripMenuItem = new ToolStripMenuItem();
             label2 = new Label();
             comboBoxStudents = new ComboBox();
             label6 = new Label();
@@ -90,7 +91,7 @@
             menuStrip1.BackColor = Color.White;
             menuStrip1.ForeColor = Color.White;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { EditTableToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { выдатьКнигуToolStripMenuItem, EditTableToolStripMenuItem });
             menuStrip1.Location = new Point(0, 97);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
@@ -103,29 +104,38 @@
             EditTableToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ReturnStripMenuItem, LostStripMenuItem, RemoveStripMenuItem });
             EditTableToolStripMenuItem.ForeColor = Color.Black;
             EditTableToolStripMenuItem.Name = "EditTableToolStripMenuItem";
-            EditTableToolStripMenuItem.Size = new Size(225, 24);
-            EditTableToolStripMenuItem.Text = "Установить новое состояние";
+            EditTableToolStripMenuItem.Size = new Size(269, 24);
+            EditTableToolStripMenuItem.Text = "Установить новое состояние книги";
             // 
             // ReturnStripMenuItem
             // 
             ReturnStripMenuItem.Name = "ReturnStripMenuItem";
-            ReturnStripMenuItem.Size = new Size(224, 26);
-            ReturnStripMenuItem.Text = "Вовзращена";
+            ReturnStripMenuItem.Size = new Size(392, 26);
+            ReturnStripMenuItem.Text = "Книга возвращена";
             ReturnStripMenuItem.Click += ReturnStripMenuItem_Click;
             // 
             // LostStripMenuItem
             // 
             LostStripMenuItem.Name = "LostStripMenuItem";
-            LostStripMenuItem.Size = new Size(224, 26);
-            LostStripMenuItem.Text = "Утеряна";
+            LostStripMenuItem.Size = new Size(392, 26);
+            LostStripMenuItem.Text = "Книга утеряна";
             LostStripMenuItem.Click += LostStripMenuItem_Click;
             // 
             // RemoveStripMenuItem
             // 
             RemoveStripMenuItem.Name = "RemoveStripMenuItem";
-            RemoveStripMenuItem.Size = new Size(224, 26);
-            RemoveStripMenuItem.Text = "Удалить";
+            RemoveStripMenuItem.Size = new Size(392, 26);
+            RemoveStripMenuItem.Text = "Удалить книгу из списка выданных суденту";
             RemoveStripMenuItem.Click += RemoveStripMenuItem_Click;
+            // 
+            // выдатьКнигуToolStripMenuItem
+            // 
+            выдатьКнигуToolStripMenuItem.BackColor = Color.White;
+            выдатьКнигуToolStripMenuItem.ForeColor = Color.Black;
+            выдатьКнигуToolStripMenuItem.Name = "выдатьКнигуToolStripMenuItem";
+            выдатьКнигуToolStripMenuItem.Size = new Size(115, 24);
+            выдатьКнигуToolStripMenuItem.Text = "Выдать книгу";
+            выдатьКнигуToolStripMenuItem.Click += IssueABbookToolStripMenuItem_Click;
             // 
             // label2
             // 
@@ -246,5 +256,6 @@
         private ComboBox comboBoxUniversities;
         private DataGridView dataGridViewBook;
         private DataGridView dataGridViewBookInfo;
+        private ToolStripMenuItem выдатьКнигуToolStripMenuItem;
     }
 }

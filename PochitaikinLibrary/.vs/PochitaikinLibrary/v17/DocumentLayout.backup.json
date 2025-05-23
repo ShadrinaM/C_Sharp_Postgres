@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\issuebookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\issuebookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\returnbook.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\returnbook.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|c:\\users\\marina\\documents\\github\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\issuebookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\issuebookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +26,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IssueBookForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\IssueBookForm.cs",
+              "RelativeDocumentMoniker": "PochitaikinLibrary\\IssueBookForm.cs",
+              "ToolTip": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\IssueBookForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "PochitaikinLibrary\\IssueBookForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T12:21:11.628Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ReturnBook.cs",
+              "Title": "ReturnBook.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ReturnBook.cs",
               "RelativeDocumentMoniker": "PochitaikinLibrary\\ReturnBook.cs",
-              "ToolTip": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ReturnBook.cs",
-              "RelativeToolTip": "PochitaikinLibrary\\ReturnBook.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAA7wIcAAABTAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ReturnBook.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
+              "RelativeToolTip": "PochitaikinLibrary\\ReturnBook.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T07:53:28.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T12:13:54.573Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ReturnBook.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ReturnBook.Designer.cs",
-              "RelativeDocumentMoniker": "PochitaikinLibrary\\ReturnBook.Designer.cs",
-              "ToolTip": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ReturnBook.Designer.cs",
-              "RelativeToolTip": "PochitaikinLibrary\\ReturnBook.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Title": "IssueBookForm.cs",
+              "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\IssueBookForm.cs",
+              "RelativeDocumentMoniker": "PochitaikinLibrary\\IssueBookForm.cs",
+              "ToolTip": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\IssueBookForm.cs",
+              "RelativeToolTip": "PochitaikinLibrary\\IssueBookForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T21:41:00.79Z",
+              "WhenOpened": "2025-05-20T08:45:58.035Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ReturnBook.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Title": "ReturnBook.cs",
               "DocumentMoniker": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ReturnBook.cs",
               "RelativeDocumentMoniker": "PochitaikinLibrary\\ReturnBook.cs",
-              "ToolTip": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ReturnBook.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "PochitaikinLibrary\\ReturnBook.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "ToolTip": "C:\\Users\\Marina\\Documents\\GitHub\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ReturnBook.cs*",
+              "RelativeToolTip": "PochitaikinLibrary\\ReturnBook.cs*",
+              "ViewState": "AgIAALAAAAAAAAAAAAAkwNQBAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T21:33:19.2Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+              "WhenOpened": "2025-05-20T08:36:43.394Z",
+              "EditorCaption": ""
             }
           ]
         }

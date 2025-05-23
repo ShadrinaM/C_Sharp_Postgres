@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewData));
             panelHeader = new Panel();
             btnBack = new PictureBox();
-            picLogo = new PictureBox();
             comboBoxTables = new ComboBox();
             dataGridView = new DataGridView();
             menuStrip1 = new MenuStrip();
@@ -41,7 +40,6 @@
             RemoveElementToolStripMenuItem = new ToolStripMenuItem();
             panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnBack).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -50,35 +48,24 @@
             // 
             panelHeader.BackColor = SystemColors.ActiveBorder;
             panelHeader.Controls.Add(btnBack);
-            panelHeader.Controls.Add(picLogo);
             panelHeader.Controls.Add(comboBoxTables);
             panelHeader.Dock = DockStyle.Top;
-            panelHeader.Location = new Point(0, 24);
+            panelHeader.Location = new Point(0, 30);
+            panelHeader.Margin = new Padding(3, 4, 3, 4);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(774, 68);
+            panelHeader.Size = new Size(885, 91);
             panelHeader.TabIndex = 0;
             // 
             // btnBack
             // 
             btnBack.Image = (Image)resources.GetObject("btnBack.Image");
-            btnBack.Location = new Point(9, 8);
-            btnBack.Margin = new Padding(3, 2, 3, 2);
+            btnBack.Location = new Point(10, 11);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(61, 52);
+            btnBack.Size = new Size(70, 69);
             btnBack.SizeMode = PictureBoxSizeMode.Zoom;
             btnBack.TabIndex = 6;
             btnBack.TabStop = false;
             btnBack.Click += btnBack_Click;
-            // 
-            // picLogo
-            // 
-            picLogo.Image = (Image)resources.GetObject("picLogo.Image");
-            picLogo.Location = new Point(700, 8);
-            picLogo.Name = "picLogo";
-            picLogo.Size = new Size(61, 52);
-            picLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            picLogo.TabIndex = 0;
-            picLogo.TabStop = false;
             // 
             // comboBoxTables
             // 
@@ -86,9 +73,10 @@
             comboBoxTables.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxTables.Font = new Font("Segoe UI", 14F);
             comboBoxTables.FormattingEnabled = true;
-            comboBoxTables.Location = new Point(75, 20);
+            comboBoxTables.Location = new Point(86, 27);
+            comboBoxTables.Margin = new Padding(3, 4, 3, 4);
             comboBoxTables.Name = "comboBoxTables";
-            comboBoxTables.Size = new Size(620, 33);
+            comboBoxTables.Size = new Size(708, 39);
             comboBoxTables.TabIndex = 1;
             comboBoxTables.SelectedIndexChanged += comboBoxTables_SelectedIndexChanged;
             // 
@@ -101,11 +89,12 @@
             dataGridView.BorderStyle = BorderStyle.None;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.GridColor = SystemColors.Control;
-            dataGridView.Location = new Point(9, 96);
+            dataGridView.Location = new Point(10, 128);
+            dataGridView.Margin = new Padding(3, 4, 3, 4);
             dataGridView.Name = "dataGridView";
             dataGridView.ReadOnly = true;
             dataGridView.RowHeadersWidth = 51;
-            dataGridView.Size = new Size(751, 309);
+            dataGridView.Size = new Size(858, 412);
             dataGridView.TabIndex = 2;
             // 
             // menuStrip1
@@ -115,7 +104,8 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { EditTableToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(774, 24);
+            menuStrip1.Padding = new Padding(7, 3, 0, 3);
+            menuStrip1.Size = new Size(885, 30);
             menuStrip1.TabIndex = 5;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -123,47 +113,47 @@
             // 
             EditTableToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { AddElementToolStripMenuItem, ChangeItemToolStripMenuItem, RemoveElementToolStripMenuItem });
             EditTableToolStripMenuItem.Name = "EditTableToolStripMenuItem";
-            EditTableToolStripMenuItem.Size = new Size(147, 20);
+            EditTableToolStripMenuItem.Size = new Size(185, 24);
             EditTableToolStripMenuItem.Text = "Редактировать таблицу";
             // 
             // AddElementToolStripMenuItem
             // 
             AddElementToolStripMenuItem.Name = "AddElementToolStripMenuItem";
-            AddElementToolStripMenuItem.Size = new Size(180, 22);
+            AddElementToolStripMenuItem.Size = new Size(222, 26);
             AddElementToolStripMenuItem.Text = "Добавить элемент";
             AddElementToolStripMenuItem.Click += AddElementToolStripMenuItem_Click;
             // 
             // ChangeItemToolStripMenuItem
             // 
             ChangeItemToolStripMenuItem.Name = "ChangeItemToolStripMenuItem";
-            ChangeItemToolStripMenuItem.Size = new Size(180, 22);
+            ChangeItemToolStripMenuItem.Size = new Size(222, 26);
             ChangeItemToolStripMenuItem.Text = "Изменить элемент";
             ChangeItemToolStripMenuItem.Click += ChangeElementToolStripMenuItem_Click;
             // 
             // RemoveElementToolStripMenuItem
             // 
             RemoveElementToolStripMenuItem.Name = "RemoveElementToolStripMenuItem";
-            RemoveElementToolStripMenuItem.Size = new Size(180, 22);
+            RemoveElementToolStripMenuItem.Size = new Size(222, 26);
             RemoveElementToolStripMenuItem.Text = "Удалить элемент";
             RemoveElementToolStripMenuItem.Click += RemoveElementToolStripMenuItem_Click;
             // 
             // ViewData
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(774, 421);
+            ClientSize = new Size(885, 561);
             Controls.Add(dataGridView);
             Controls.Add(panelHeader);
             Controls.Add(menuStrip1);
-            MinimumSize = new Size(790, 460);
+            Margin = new Padding(3, 4, 3, 4);
+            MinimumSize = new Size(900, 598);
             Name = "ViewData";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Просмотр данных библиотеки";
             Load += ViewData_Load;
             panelHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)btnBack).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -174,7 +164,6 @@
         #endregion
 
         private Panel panelHeader;
-        private PictureBox picLogo;
         private ComboBox comboBoxTables;
         private DataGridView dataGridView;
         private MenuStrip menuStrip1;
