@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PochitaikinLibrary")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+018572a8ad9e023f234f986665d40cdbacba24b2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+baa569f2f5825427bdd32f84d19daace14f44ba6")]
 [assembly: System.Reflection.AssemblyProductAttribute("PochitaikinLibrary")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PochitaikinLibrary")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

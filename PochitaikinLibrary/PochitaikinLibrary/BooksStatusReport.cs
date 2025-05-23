@@ -115,7 +115,6 @@ namespace PochitaikinLibrary
                         JOIN universities u ON s.university_id = u.university_id
                     WHERE 
                         l.return_date IS NULL
-                        AND l.due_date < CURRENT_DATE
                         AND l.issue_date BETWEEN @startDate AND @endDate
                         AND u.name = ANY(@selectedUniversities)
                     GROUP BY u.name
