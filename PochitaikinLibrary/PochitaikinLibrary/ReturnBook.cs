@@ -164,6 +164,8 @@ namespace PochitaikinLibrary
                         // Настройка заголовков столбцов
                         if (dataGridViewBook.Columns.Count > 0)
                         {
+                            // СКРЫТИЕ ID ЗАКОМЕНТ
+                            // dataGridViewBook.Columns["book_id"].Visible = false;
                             dataGridViewBook.Columns["title"].HeaderText = "Название";
                             dataGridViewBook.Columns["issue_date"].HeaderText = "Дата выдачи";
                             dataGridViewBook.Columns["due_date"].HeaderText = "Срок возврата";
@@ -222,6 +224,8 @@ namespace PochitaikinLibrary
                         // Переименовать заголовки, если нужно
                         if (dataGridViewBookInfo.Columns.Count > 0)
                         {
+                            // СКРЫТИЕ ID ЗАКОМЕНТ
+                            //dataGridViewBook.Columns["book_id"].Visible = false;
                             dataGridViewBookInfo.Columns["title"].HeaderText = "Название";
                             dataGridViewBookInfo.Columns["cost"].HeaderText = "Стоимость";
                             dataGridViewBookInfo.Columns["is_available"].HeaderText = "Доступна";
@@ -235,7 +239,7 @@ namespace PochitaikinLibrary
             }
         }
 
-        // Пометить выбранную книгу утеряной (дважды утеряной назначить запрещает) по нажатию кнопки в menuStrip1
+        // Пометить выбранную книгу утеряной (дважды утеряной назначить запрещает) по нажатию кнопки в menuStrip1        
         private void LostStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dataGridViewBook.SelectedRows.Count == 0)
@@ -262,9 +266,30 @@ namespace PochitaikinLibrary
 
             try
             {
+                // Получаем стоимость книги
+                decimal bookCost = 0;
+                string costQuery = "SELECT cost FROM books WHERE book_id = @bookId";
+                using (var costCmd = new NpgsqlCommand(costQuery, connection))
+                {
+                    costCmd.Parameters.AddWithValue("@bookId", bookId);
+                    bookCost = (decimal)costCmd.ExecuteScalar();
+                }
+
+                // Показываем форму оплаты
+                using (var paymentForm = new PaymentForm(bookCost))
+                {
+                    paymentForm.ShowDialog();
+
+                    if (!paymentForm.PaymentCompleted)
+                    {
+                        MessageBox.Show("Оплата не была произведена. Книга не может быть отмечена как утерянная.");
+                        return;
+                    }
+                }
+
                 // Проверяем, не числится ли книга уже как утерянная
                 string checkLostQuery = @"SELECT COUNT(*) FROM lost_books 
-                            WHERE student_id = @studentId AND book_id = @bookId";
+                    WHERE student_id = @studentId AND book_id = @bookId";
 
                 using (var checkCmd = new NpgsqlCommand(checkLostQuery, connection))
                 {
@@ -281,14 +306,14 @@ namespace PochitaikinLibrary
 
                 // Добавляем запись в таблицу lost_books
                 string insertQuery = @"INSERT INTO lost_books (student_id, book_id, lost_date) 
-                         VALUES (@studentId, @bookId, CURRENT_DATE)";
+                 VALUES (@studentId, @bookId, CURRENT_DATE)";
 
                 // Обновляем статус книги как недоступной
                 string updateQuery = @"UPDATE books SET is_available = false WHERE book_id = @bookId";
 
                 // Удаляем запись из loans (или можно добавить return_date - зависит от логики)
                 string deleteLoanQuery = @"DELETE FROM loans 
-                         WHERE student_id = @studentId AND book_id = @bookId AND return_date IS NULL";
+                 WHERE student_id = @studentId AND book_id = @bookId AND return_date IS NULL";
 
                 using (var transaction = connection.BeginTransaction())
                 {
@@ -487,9 +512,19 @@ namespace PochitaikinLibrary
             int studentId = selectedStudent.Key;
 
             // Создаем и показываем форму выдачи книги, передавая ID студента
-            IssueBookForm IssueBookForma = new IssueBookForm(connection, this, studentId);
-            IssueBookForma.Show();
-            this.Hide();
+            using (IssueBookForm IssueBookForma = new IssueBookForm(connection, this, studentId))
+            {
+                if (IssueBookForma.ShowDialog() == DialogResult.OK)
+                {
+                    // ОБНОВЛЕНИЕ dataGridViewBook ПОСЛЕ ДОБАВЛЕНИЯ СТУДЕНТА РАСКОММЕНТИТЬ
+                    // LoadStudentBooks(selectedStudent.Key);
+                    if (dataGridViewBook.SelectedRows.Count > 0)
+                    {
+                        int bookId = Convert.ToInt32(dataGridViewBook.SelectedRows[0].Cells["book_id"].Value);                        
+                        LoadBookInfo(bookId);
+                    }
+                }
+            }
         }
     }
 }

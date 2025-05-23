@@ -181,7 +181,7 @@
             MinimumSize = new Size(877, 535);
             Name = "BooksStatusReport";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Отчет о статусе книг";
+            Text = "Отчёт по статусу книг";
             Load += BooksStatusReport_Load;
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();

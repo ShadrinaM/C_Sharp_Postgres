@@ -31,14 +31,18 @@ namespace PochitaikinLibrary
         // Закрытие окна по крестику
         private void WinForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             mainForm.Show();
         }
 
+        // Закрытие окна по кнопке
         private void btnBack_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
+        // Преднастройка элементов формы
         private void IssueBook_Load(object sender, EventArgs e)
         {
             // Установка дат по умолчанию

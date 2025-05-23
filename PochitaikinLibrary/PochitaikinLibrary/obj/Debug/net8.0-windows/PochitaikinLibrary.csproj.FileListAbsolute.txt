@@ -29,7 +29,6 @@ M:\Git\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-w
 M:\Git\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
 M:\Git\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.csproj.ResolveComReference.cache
 M:\Git\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.BooksStatusReport.resources
-M:\Git\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.IssueBook.resources
 M:\Git\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.ReturnBook.resources
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\bin\Debug\net8.0-windows\PochitaikinLibrary.exe
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\bin\Debug\net8.0-windows\PochitaikinLibrary.deps.json
@@ -65,3 +64,5 @@ C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\Pochitaikin
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.pdb
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.genruntimeconfig.cache
 C:\Users\Marina\Documents\GitHub\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\ref\PochitaikinLibrary.dll
+M:\Git\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.IssueBookForm.resources
+M:\Git\C_Sharp_Postgres\PochitaikinLibrary\PochitaikinLibrary\obj\Debug\net8.0-windows\PochitaikinLibrary.PaymentForm.resources

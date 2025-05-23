@@ -19,16 +19,19 @@ namespace PochitaikinLibrary
             this.FormClosed += WinForm_FormClosed;
         }
 
+        // Закрытие формы по крестику
         private void WinForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             mainForm.Show();
         }
                 
+        // Закрытие формы по кнопке
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Преднастройка элементов формы и заполнение comboBoxTables
         private void ViewData_Load(object sender, EventArgs e)
         {
             Dictionary<string, string> tableNames = new Dictionary<string, string>
@@ -36,8 +39,10 @@ namespace PochitaikinLibrary
                 {"Университеты", "Университеты"},
                 {"Студенты", "Студенты"},
                 {"Книги", "Книги"},
-                {"Выдачи книг", "Выдачи книг"},
-                {"Утерянные книги", "Утерянные книги"},
+                // Ниже две таблицы в которые мы не добавляем в этой форме, просто что бы можно было прочекать содержимое
+                //{"Выдачи книг", "Выдачи книг"},
+                //{"Утерянные книги", "Утерянные книги"},
+                // Эти две просто по приколу
                 //{"Текущие выданные книги", "Текущие выданные книги"},
                 //{"Статистика по университетам", "Статистика по университетам"}
             };
@@ -56,6 +61,7 @@ namespace PochitaikinLibrary
             dataGridView.MultiSelect = false;
         }
 
+        // Обработчик выбора таблицы в comboBoxTables
         private void comboBoxTables_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedTable = comboBoxTables.SelectedItem.ToString();
@@ -74,6 +80,7 @@ namespace PochitaikinLibrary
             }
         }
 
+        // Заполнение dataGridView выбранным представлением
         private void RefreshDataGridView(string viewName)
         {
             try
@@ -99,6 +106,7 @@ namespace PochitaikinLibrary
             }
         }
 
+        // Скрытие id для всех View
         private void HideIdColumns(string viewName)
         {
             var idColumns = new Dictionary<string, string>

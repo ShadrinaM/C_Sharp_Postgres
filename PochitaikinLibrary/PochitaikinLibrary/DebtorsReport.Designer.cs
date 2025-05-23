@@ -177,8 +177,8 @@
             MinimumSize = new Size(877, 535);
             Name = "DebtorsReport";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Отчет о просроченных книгах";
-            Load += OverdueBooksReport_Load;
+            Text = "Отчёт по должникам";
+            Load += DebtorsReport_Load;
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnBack).EndInit();

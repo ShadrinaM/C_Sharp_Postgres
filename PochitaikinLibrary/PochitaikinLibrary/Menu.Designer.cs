@@ -40,9 +40,9 @@
             lblTitle.AutoSize = true;
             lblTitle.BackColor = SystemColors.ControlLight;
             lblTitle.Font = new Font("Arial Rounded MT Bold", 30F);
-            lblTitle.Location = new Point(122, 54);
+            lblTitle.Location = new Point(107, 40);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(644, 58);
+            lblTitle.Size = new Size(509, 46);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Библиотека \"Почитайкин\"";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -51,9 +51,10 @@
             // 
             btnViewData.BackColor = SystemColors.ControlLight;
             btnViewData.Font = new Font("Arial Rounded MT Bold", 22.2F);
-            btnViewData.Location = new Point(122, 174);
+            btnViewData.Location = new Point(107, 130);
+            btnViewData.Margin = new Padding(3, 2, 3, 2);
             btnViewData.Name = "btnViewData";
-            btnViewData.Size = new Size(644, 75);
+            btnViewData.Size = new Size(564, 56);
             btnViewData.TabIndex = 1;
             btnViewData.Text = "Управление данными";
             btnViewData.UseVisualStyleBackColor = false;
@@ -63,9 +64,10 @@
             // 
             btnReturnBook.BackColor = SystemColors.ControlLight;
             btnReturnBook.Font = new Font("Arial Rounded MT Bold", 22.2F);
-            btnReturnBook.Location = new Point(122, 255);
+            btnReturnBook.Location = new Point(107, 191);
+            btnReturnBook.Margin = new Padding(3, 2, 3, 2);
             btnReturnBook.Name = "btnReturnBook";
-            btnReturnBook.Size = new Size(644, 75);
+            btnReturnBook.Size = new Size(564, 56);
             btnReturnBook.TabIndex = 3;
             btnReturnBook.Text = "Выдача и возврат книги";
             btnReturnBook.UseVisualStyleBackColor = false;
@@ -75,9 +77,10 @@
             // 
             btnDebtorsReport.BackColor = SystemColors.ControlLight;
             btnDebtorsReport.Font = new Font("Arial Rounded MT Bold", 22.2F);
-            btnDebtorsReport.Location = new Point(122, 336);
+            btnDebtorsReport.Location = new Point(107, 252);
+            btnDebtorsReport.Margin = new Padding(3, 2, 3, 2);
             btnDebtorsReport.Name = "btnDebtorsReport";
-            btnDebtorsReport.Size = new Size(644, 75);
+            btnDebtorsReport.Size = new Size(564, 56);
             btnDebtorsReport.TabIndex = 4;
             btnDebtorsReport.Text = "Отчёт по должникам";
             btnDebtorsReport.UseVisualStyleBackColor = false;
@@ -87,25 +90,27 @@
             // 
             btnBooksStatusReport.BackColor = SystemColors.ControlLight;
             btnBooksStatusReport.Font = new Font("Arial Rounded MT Bold", 22.2F);
-            btnBooksStatusReport.Location = new Point(122, 417);
+            btnBooksStatusReport.Location = new Point(107, 313);
+            btnBooksStatusReport.Margin = new Padding(3, 2, 3, 2);
             btnBooksStatusReport.Name = "btnBooksStatusReport";
-            btnBooksStatusReport.Size = new Size(644, 75);
+            btnBooksStatusReport.Size = new Size(564, 56);
             btnBooksStatusReport.TabIndex = 5;
-            btnBooksStatusReport.Text = "Отчёт по состоянию книг";
+            btnBooksStatusReport.Text = "Отчёт по статусу книг";
             btnBooksStatusReport.UseVisualStyleBackColor = false;
             btnBooksStatusReport.Click += btnBooksStatusReport_Click;
             // 
             // Menu
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(882, 553);
+            ClientSize = new Size(772, 415);
             Controls.Add(btnBooksStatusReport);
             Controls.Add(btnDebtorsReport);
             Controls.Add(btnReturnBook);
             Controls.Add(btnViewData);
             Controls.Add(lblTitle);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Menu";
             Text = "Библиотека - Главное меню";
             Load += Menu_Load;

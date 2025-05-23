@@ -15,18 +15,40 @@ namespace PochitaikinLibrary
             connection = conn;
             this.FormClosed += OverdueBooksReport_FormClosed;
         }
-
+        
+        // Закрытие формы по крестику
         private void OverdueBooksReport_FormClosed(object sender, FormClosedEventArgs e)
         {
             mainForm.Show();
         }
-
+        
+        // Закрытие формы по кнопке
         private void btnBack_Click(object sender, EventArgs e)
         {
             mainForm.Show();
             this.Close();
         }
+        
+        // Преднастройка формы
+        private void DebtorsReport_Load(object sender, EventArgs e)
+        {
+            // Выбор по одному клику
+            checkedListBoxUniversities.CheckOnClick = true;
 
+            // Настройка DateTimePicker - оставляем только одну дату
+            dateTimePickerStart.Value = DateTime.Today;
+
+            // Переименовываем подпись
+            DataStart.Text = "Дата проверки:";
+
+            // Загрузка списка вузов
+            LoadUniversities();
+
+            // Настройка DataGridView
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+       
+        // Загрузка университетов в checkedListBoxUniversities
         private void LoadUniversities()
         {
             try
@@ -48,25 +70,8 @@ namespace PochitaikinLibrary
                 MessageBox.Show($"Ошибка при загрузке списка вузов: {ex.Message}");
             }
         }
-
-        private void OverdueBooksReport_Load(object sender, EventArgs e)
-        {
-            // Выбор по одному клику
-            checkedListBoxUniversities.CheckOnClick = true;
-
-            // Настройка DateTimePicker - оставляем только одну дату
-            dateTimePickerStart.Value = DateTime.Today;
-
-            // Переименовываем подпись
-            DataStart.Text = "Дата проверки:";
-
-            // Загрузка списка вузов
-            LoadUniversities();
-
-            // Настройка DataGridView
-            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
-
+        
+        // Обработчик кнопки сгенерировать отчёт
         private void btnGenerateReport_Click(object sender, EventArgs e)
         {
             if (checkedListBoxUniversities.CheckedItems.Count == 0)
@@ -133,6 +138,7 @@ namespace PochitaikinLibrary
             }
         }
 
+        // Обработчик кнопки сгенерировать Excel (работает только по сгенеренным данным с помощью btnGenerateReport_Click)
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
             try
