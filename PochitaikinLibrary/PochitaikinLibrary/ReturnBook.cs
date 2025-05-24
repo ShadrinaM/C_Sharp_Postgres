@@ -130,26 +130,78 @@ namespace PochitaikinLibrary
         }
 
         // Загрузка всех книг которые когда либо выдавались студенту в dataGridViewBook
+        //private void LoadStudentBooks(int studentId)
+        //{
+        //    try
+        //    {
+        //        string query = @"SELECT 
+        //                    b.book_id, 
+        //                    b.title, 
+        //                    l.issue_date, 
+        //                    l.due_date,
+        //                    CASE
+        //                        WHEN lb.lost_id IS NOT NULL THEN 'Утеряна'
+        //                        WHEN l.return_date IS NOT NULL THEN 'Возвращена'
+        //                        WHEN l.due_date < CURRENT_DATE THEN 'Просрочена'
+        //                        ELSE 'На руках'
+        //                    END AS status
+        //                FROM loans l
+        //                JOIN books b ON l.book_id = b.book_id
+        //                LEFT JOIN lost_books lb ON l.book_id = lb.book_id AND l.student_id = lb.student_id
+        //                WHERE l.student_id = @studentId
+        //                ORDER BY l.due_date";
+
+        //        using (var cmd = new NpgsqlCommand(query, connection))
+        //        {
+        //            cmd.Parameters.AddWithValue("@studentId", studentId);
+
+        //            using (var adapter = new NpgsqlDataAdapter(cmd))
+        //            {
+        //                System.Data.DataTable dt = new System.Data.DataTable();
+        //                adapter.Fill(dt);
+        //                dataGridViewBook.DataSource = dt;
+
+        //                // Настройка заголовков столбцов
+        //                if (dataGridViewBook.Columns.Count > 0)
+        //                {
+        //                    // СКРЫТИЕ ID ЗАКОМЕНТ
+        //                    // dataGridViewBook.Columns["book_id"].Visible = false;
+        //                    dataGridViewBook.Columns["title"].HeaderText = "Название";
+        //                    dataGridViewBook.Columns["issue_date"].HeaderText = "Дата выдачи";
+        //                    dataGridViewBook.Columns["due_date"].HeaderText = "Срок возврата";
+        //                    dataGridViewBook.Columns["status"].HeaderText = "Статус";
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"Ошибка при загрузке книг студента: {ex.Message}");
+        //    }
+        //}
+
+        // Загрузка всех книг которые когда либо выдавались студенту в dataGridViewBook
         private void LoadStudentBooks(int studentId)
         {
             try
             {
                 string query = @"SELECT 
-                            b.book_id, 
-                            b.title, 
-                            l.issue_date, 
-                            l.due_date,
-                            CASE
-                                WHEN lb.lost_id IS NOT NULL THEN 'Утеряна'
-                                WHEN l.return_date IS NOT NULL THEN 'Возвращена'
-                                WHEN l.due_date < CURRENT_DATE THEN 'Просрочена'
-                                ELSE 'На руках'
-                            END AS status
-                        FROM loans l
-                        JOIN books b ON l.book_id = b.book_id
-                        LEFT JOIN lost_books lb ON l.book_id = lb.book_id AND l.student_id = lb.student_id
-                        WHERE l.student_id = @studentId
-                        ORDER BY l.due_date";
+                        b.book_id, 
+                        b.title, 
+                        b.cost,
+                        l.issue_date, 
+                        l.due_date,
+                        CASE
+                            WHEN lb.lost_id IS NOT NULL THEN 'Утеряна'
+                            WHEN l.return_date IS NOT NULL THEN 'Возвращена'
+                            WHEN l.due_date < CURRENT_DATE THEN 'Просрочена'
+                            ELSE 'На руках'
+                        END AS status
+                    FROM loans l
+                    JOIN books b ON l.book_id = b.book_id
+                    LEFT JOIN lost_books lb ON l.book_id = lb.book_id AND l.student_id = lb.student_id
+                    WHERE l.student_id = @studentId
+                    ORDER BY l.due_date";
 
                 using (var cmd = new NpgsqlCommand(query, connection))
                 {
@@ -167,6 +219,7 @@ namespace PochitaikinLibrary
                             // СКРЫТИЕ ID ЗАКОМЕНТ
                             // dataGridViewBook.Columns["book_id"].Visible = false;
                             dataGridViewBook.Columns["title"].HeaderText = "Название";
+                            dataGridViewBook.Columns["cost"].HeaderText = "Стоимость";
                             dataGridViewBook.Columns["issue_date"].HeaderText = "Дата выдачи";
                             dataGridViewBook.Columns["due_date"].HeaderText = "Срок возврата";
                             dataGridViewBook.Columns["status"].HeaderText = "Статус";
