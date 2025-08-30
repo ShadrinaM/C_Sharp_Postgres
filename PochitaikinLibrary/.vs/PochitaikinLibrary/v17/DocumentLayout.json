@@ -3,32 +3,60 @@
   "WorkspaceRootPath": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|m:\\git\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|m:\\git\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\menu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\menu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|m:\\git\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|m:\\git\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|m:\\git\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\booksstatusreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\booksstatusreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|m:\\git\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|m:\\git\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\forms\\bookform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\forms\\bookform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|m:\\git\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\forms\\bookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\forms\\bookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|m:\\git\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\forms\\bookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\forms\\bookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\pochitaikinlibrary\\forms\\universityform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\forms\\universityform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\pochitaikinlibrary\\booksstatusreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\booksstatusreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|m:\\git\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\forms\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\forms\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|m:\\git\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\pochitaikinlibrary\\viewdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\viewdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|m:\\git\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\viewdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\viewdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\pochitaikinlibrary\\viewdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\viewdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\pochitaikinlibrary\\booksstatusreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\booksstatusreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|m:\\git\\c_sharp_postgres\\pochitaikinlibrary\\pochitaikinlibrary\\booksstatusreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\booksstatusreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{154F7FD8-1D36-4CAA-8C29-6C8C41E444BF}|PochitaikinLibrary\\PochitaikinLibrary.csproj|solutionrelative:pochitaikinlibrary\\returnbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +66,99 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Menu.Designer.cs",
+              "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Menu.Designer.cs",
+              "RelativeDocumentMoniker": "PochitaikinLibrary\\Menu.Designer.cs",
+              "ToolTip": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Menu.Designer.cs",
+              "RelativeToolTip": "PochitaikinLibrary\\Menu.Designer.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAowH4AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T19:10:00.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Menu.cs",
+              "RelativeDocumentMoniker": "PochitaikinLibrary\\Menu.cs",
+              "ToolTip": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Menu.cs",
+              "RelativeToolTip": "PochitaikinLibrary\\Menu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T19:06:47.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Menu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Menu.cs",
+              "RelativeDocumentMoniker": "PochitaikinLibrary\\Menu.cs",
+              "ToolTip": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Menu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "PochitaikinLibrary\\Menu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T19:06:42.927Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BookForm.Designer.cs",
+              "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Forms\\BookForm.Designer.cs",
+              "RelativeDocumentMoniker": "PochitaikinLibrary\\Forms\\BookForm.Designer.cs",
+              "ToolTip": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Forms\\BookForm.Designer.cs",
+              "RelativeToolTip": "PochitaikinLibrary\\Forms\\BookForm.Designer.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAYwJgAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T18:17:36.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookForm.cs",
+              "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Forms\\BookForm.cs",
+              "RelativeDocumentMoniker": "PochitaikinLibrary\\Forms\\BookForm.cs",
+              "ToolTip": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Forms\\BookForm.cs",
+              "RelativeToolTip": "PochitaikinLibrary\\Forms\\BookForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T18:17:34.72Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StudentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Forms\\StudentForm.cs",
+              "RelativeDocumentMoniker": "PochitaikinLibrary\\Forms\\StudentForm.cs",
+              "ToolTip": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Forms\\StudentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "PochitaikinLibrary\\Forms\\StudentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T18:17:21.444Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BookForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Forms\\BookForm.cs",
+              "RelativeDocumentMoniker": "PochitaikinLibrary\\Forms\\BookForm.cs",
+              "ToolTip": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Forms\\BookForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "PochitaikinLibrary\\Forms\\BookForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T18:17:20.07Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "ReturnBook.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ReturnBook.cs",
               "RelativeDocumentMoniker": "PochitaikinLibrary\\ReturnBook.cs",
@@ -54,42 +170,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 12,
               "Title": "BooksStatusReport.cs",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\BooksStatusReport.cs",
               "RelativeDocumentMoniker": "PochitaikinLibrary\\BooksStatusReport.cs",
               "ToolTip": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\BooksStatusReport.cs",
               "RelativeToolTip": "PochitaikinLibrary\\BooksStatusReport.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJQAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-23T20:30:50.369Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "UniversityForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Forms\\UniversityForm.cs",
               "RelativeDocumentMoniker": "PochitaikinLibrary\\Forms\\UniversityForm.cs",
               "ToolTip": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\Forms\\UniversityForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "RelativeToolTip": "PochitaikinLibrary\\Forms\\UniversityForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T20:30:46.664Z"
+              "WhenOpened": "2025-05-23T20:30:46.664Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "BooksStatusReport.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\BooksStatusReport.cs",
               "RelativeDocumentMoniker": "PochitaikinLibrary\\BooksStatusReport.cs",
               "ToolTip": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\BooksStatusReport.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "RelativeToolTip": "PochitaikinLibrary\\BooksStatusReport.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T20:30:44.043Z"
+              "WhenOpened": "2025-05-23T20:30:44.043Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "ViewData.cs",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ViewData.cs",
               "RelativeDocumentMoniker": "PochitaikinLibrary\\ViewData.cs",
@@ -102,24 +220,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "ViewData.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ViewData.cs",
               "RelativeDocumentMoniker": "PochitaikinLibrary\\ViewData.cs",
               "ToolTip": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ViewData.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "RelativeToolTip": "PochitaikinLibrary\\ViewData.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T19:45:42.168Z"
+              "WhenOpened": "2025-05-23T19:45:42.168Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "ReturnBook.cs",
               "DocumentMoniker": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ReturnBook.cs",
               "RelativeDocumentMoniker": "PochitaikinLibrary\\ReturnBook.cs",
               "ToolTip": "M:\\Git\\C_Sharp_Postgres\\PochitaikinLibrary\\PochitaikinLibrary\\ReturnBook.cs",
               "RelativeToolTip": "PochitaikinLibrary\\ReturnBook.cs",
-              "ViewState": "AgIAAMgAAAAAAAAAAAAmwOQAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAJgBAAAAAAAAAAAAALcAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-23T19:44:40.248Z",
               "EditorCaption": ""
